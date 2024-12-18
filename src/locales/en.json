@@ -1,0 +1,121 @@
+{
+  "title": "Qahvazor",
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "plans": "Plans",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Elevate Your Coffee Experience",
+    "subtitle": "Discover the finest coffee blends tailored to your taste. Join Qahvazor, the subscription that keeps your mornings energized and your coffee cravings satisfied.",
+    "download": "Download on the"
+  },
+  "features": {
+    "title": "Why Choose Qahvazor?",
+    "feature-1": {
+      "title": "Curated Coffee Selection",
+      "description": "Access a variety of premium coffee blends, handpicked from the best local roasters."
+    },
+    "feature-2": {
+      "title": "Support Local Coffee Shops",
+      "description": "Enjoy great coffee while supporting local cafes and roasters in your community."
+    },
+    "feature-3": {
+      "title": "Flexible Subscriptions",
+      "description": "Adjust, pause, or cancel your plan anytime—your coffee, your way."
+    },
+    "feature-4": {
+      "title": "Discover New Coffee Spots",
+      "description": "Explore unique coffee experiences from our trusted partner locations."
+    }
+  },
+  "subscriptions": {
+    "title": "Subscription Plans",
+    "subscription-1": {
+      "title": "Basic Package",
+      "description": "Perfect for coffee enthusiasts starting their journey.",
+      "price": "$9.99",
+      "features": [
+        "1 cup per day",
+        "Access to basic coffee options (e.g., Americano, Espresso)",
+        "Limited coffee shops",
+        "Affordable and ideal for daily simplicity"
+      ]
+    },
+    "subscription-2": {
+      "title": "Standart Selection",
+      "description": "Perfect for Coffee lovers who need a bit more variety.",
+      "price": "$19.99",
+      "features": [
+        "2 cups per day",
+        "Access to a wider range of coffee types (e.g., Cappuccino, Latte)",
+        "Limited coffee shops",
+        "Affordable and ideal for daily variety"
+      ]
+    },
+    "subscription-3": {
+      "title": "Premium Choice",
+      "description": "Perfect for Connoisseurs who want the ultimate coffee experience.",
+      "price": "$29.99",
+      "features": [
+        "3 cups per day",
+        "Access to all coffee types, including specialty coffees",
+        "Unlimited coffee shops",
+        "Luxurious and exclusive for coffee enthusiasts"
+      ]
+    }
+  },
+  "partners": {
+    "title": "Our Trusted Partners",
+    "description": "We're proud to work with our amazing partners who share our commitment to quality, sustainability, and fair trade practices in the coffee industry."
+  },
+  "our-story": {
+    "title": "Our Story",
+    "part-1": "Qahvazor was born from a simple idea: to make great coffee more accessible. We partner with the best local coffee shops to make your days more flavorful and enjoyable, and to make enjoying coffee even more convenient and easy. No matter your tastes, our carefully curated subscription ensures that you will always discover something new and delicious.",
+    "part-2": "We’re here to support local businesses while giving coffee lovers an effortless way to enjoy their favorite blends. Qahvazor is your connection to a world of premium coffee experiences, all in one subscription.",
+    "part-3": "At Qahvazor, coffee is more than a drink—it's a bridge that connects people, stories, and cultures. With every sip, you’re not just enjoying a brew; you’re becoming part of a vibrant community that values quality, authenticity, and connection. Let’s redefine your coffee experience, one cup at a time."
+  },
+  "footer": {
+    "quick-links": {
+      "title": "Quick Links",
+      "privacy-policy": "Privacy Policy",
+      "terms-of-service": "Terms of Service",
+      "help-center": "Help Center"
+    },
+    "connect-with-us": {
+      "title": "Connect With Us",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "twitter": "Twitter"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscribe to our newsletter to stay updated with the latest coffee news and exclusive offers.",
+      "placeholder": "Your email address",
+      "button": "Subscribe"
+    },
+    "author": "© 2023 Qahvazor. All rights reserved. Elevate Your Coffee Experience."
+  },
+  "contacts": {
+    "title": "We'd Love to Hear From You!",
+    "description": "Whether you have a question, feedback, or just want to chat about coffee, feel free to reach out.",
+    "contact-us": "Contact Us",
+    "reach-us": "Reach Us Directly",
+    "name": "Name",
+    "email": "Email Address",
+    "message": "Message",
+    "send": "Send",
+    "success": "Thank you for reaching out!",
+    "success-subtitle": "We'll get back to you soon.",
+    "location": "Tashkent city, Shaykhantakhur district, Ukchi street, 5"
+  },
+  "newsletter": {
+    "title": "Stay Updated with Qahvazor",
+    "description": "Subscribe to our newsletter for the latest coffee news and exclusive offers.",
+    "placeholder": "Your email address",
+    "button": "Subscribe",
+    "time": "We'll respond within 24-48 hours."
+  }
+}
