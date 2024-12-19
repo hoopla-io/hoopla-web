@@ -46,11 +46,7 @@ const Header = () => {
               href="/"
               className={`flex items-center space-x-2 text-primary`}
             >
-              <span
-                className={`text-xl font-semibold  font-["Sofia", "Inter", sans-serif]`}
-              >
-                Qahvazor
-              </span>
+              <span className={`text-xl font-bold font-eugusto`}>Qahvazor</span>
             </Link>
 
             {/* Navigation */}
@@ -59,7 +55,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-main hover:text-main/80 transition-colors font-thin text-base"
+                  className="text-main hover:text-main/80 transition-colors font-light text-base"
                 >
                   {item.name}
                 </Link>

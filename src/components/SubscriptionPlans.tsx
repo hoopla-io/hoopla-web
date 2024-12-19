@@ -91,11 +91,13 @@ const SubscriptionPlans = () => {
 
               {/* Content */}
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold tracking-tight">
+                <h3 className="text-2xl font-bold tracking-wider">
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline">
-                  <span className="text-3xl sm:text-4xl font-extrabold">{plan.price}</span>
+                  <span className="text-3xl sm:text-4xl font-extrabold font-eugusto">
+                    {plan.price}
+                  </span>
                 </div>
                 <p className="text-gray-500">{plan.description}</p>
 

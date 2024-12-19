@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Sofia";
-  src: url("/fonts/Sofia-Pro-Regular-Az.otf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
+@layer base {
+  @font-face {
+    font-family: "Sofia";
+    src: url("/fonts/Sofia-Pro-Regular-Az.otf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: "Sofia";
-  src: url("/fonts/Sofia-Pro-Semi-Bold-Az.otf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
+  @font-face {
+    font-family: "Sofia";
+    src: url("/fonts/Sofia-Pro-Semi-Bold-Az.otf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: "Sofia";
-  src: url("/fonts/SofiaPro-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
+  @font-face {
+    font-family: "Sofia";
+    src: url("/fonts/SofiaPro-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: "Sofia";
-  src: url("/fonts/SofiaPro-ExtraBold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
+  @font-face {
+    font-family: "Sofia";
+    src: url("/fonts/SofiaPro-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Eugusto";
+    src: url("/fonts/eugusto-eugusto-regular-400.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Eugusto";
+    src: url("/fonts/eugusto-eugusto-bold-700.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Eugusto";
+    src: url("/fonts/eugusto-eugusto-light-200.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+  }
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
+/* body {
   font-family: "Inter", sans-serif;
-}
+} */
 
 @layer utilities {
   .text-balance {

@@ -14,7 +14,11 @@ export default {
         cream: "#F5E6D3",
         success: "#4a934a",
         main: "#1a1a1a",
-        primary: "#8D0B41",
+        primary: "#892235",
+      },
+      fontFamily: {
+        eugusto: ["Eugusto", "serif"],
+        sofia: ["Sofia", "cursive"],
       },
     },
   },

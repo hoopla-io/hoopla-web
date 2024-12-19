@@ -34,7 +34,7 @@ export const LocaleSwitcher = (props: { className: string }) => {
         <button
           key={index}
           onClick={() => onChange(id)}
-          className={cn("rounded-none text-main font-normal uppercase", {
+          className={cn("rounded-none text-main font-normal uppercase font-eugusto", {
             "border-b-2 border-main": id === locale,
           })}
         >
