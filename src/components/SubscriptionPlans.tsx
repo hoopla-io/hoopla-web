@@ -16,7 +16,7 @@ const SubscriptionPlans = () => {
     {
       name: t("subscriptions.subscription-1.title"),
       description: t("subscriptions.subscription-1.description"),
-      price: "199 990 So'm",
+      price: t("subscriptions.subscription-1.price"),
       features: [
         t("subscriptions.subscription-1.features.0"),
         t("subscriptions.subscription-1.features.1"),
@@ -27,8 +27,8 @@ const SubscriptionPlans = () => {
     },
     {
       name: t("subscriptions.subscription-2.title"),
-      description: t("subscriptions.subscription-1.description"),
-      price: "299 990 So'm",
+      description: t("subscriptions.subscription-2.description"),
+      price: t("subscriptions.subscription-2.price"),
       features: [
         t("subscriptions.subscription-2.features.0"),
         t("subscriptions.subscription-2.features.1"),
@@ -39,8 +39,8 @@ const SubscriptionPlans = () => {
     },
     {
       name: t("subscriptions.subscription-3.title"),
-      description: t("subscriptions.subscription-1.description"),
-      price: "399 990 So'm",
+      description: t("subscriptions.subscription-3.description"),
+      price: t("subscriptions.subscription-3.price"),
       features: [
         t("subscriptions.subscription-3.features.0"),
         t("subscriptions.subscription-3.features.1"),

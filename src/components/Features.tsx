@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Coffee, Home, Repeat, MapPin } from "lucide-react";
+import { Coffee, Repeat, MapPin, HeartHandshake } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const features = [
@@ -11,7 +11,7 @@ const features = [
     "description-key": "feature-1.description",
   },
   {
-    icon: Home,
+    icon: HeartHandshake,
     "title-key": "feature-2.title",
     "description-key": "feature-2.description",
   },

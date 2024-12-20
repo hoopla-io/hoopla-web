@@ -5,6 +5,13 @@
 @layer base {
   @font-face {
     font-family: "Sofia";
+    src: url("/fonts/Sofia-Pro-Light-Az.otf") format("truetype-variations");
+    font-weight: 200 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Sofia";
     src: url("/fonts/Sofia-Pro-Regular-Az.otf") format("truetype");
     font-weight: 400;
     font-style: normal;
@@ -19,15 +26,8 @@
 
   @font-face {
     font-family: "Sofia";
-    src: url("/fonts/SofiaPro-Bold.ttf") format("truetype");
+    src: url("/fonts/SofiaPro-Bold-Az.otf") format("truetype");
     font-weight: 700;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Sofia";
-    src: url("/fonts/SofiaPro-ExtraBold.ttf") format("truetype");
-    font-weight: 800;
     font-style: normal;
   }
 
@@ -48,7 +48,7 @@
   @font-face {
     font-family: "Eugusto";
     src: url("/fonts/eugusto-eugusto-light-200.ttf") format("truetype");
-    font-weight: 700;
+    font-weight: 200;
     font-style: normal;
   }
 }

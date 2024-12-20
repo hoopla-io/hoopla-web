@@ -8,19 +8,19 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Elevate Your Coffee Experience",
-    "subtitle": "Discover the finest coffee blends tailored to your taste. Join Qahvazor, the subscription that keeps your mornings energized and your coffee cravings satisfied.",
+    "title": "Sweet Subscription for Coffee",
+    "subtitle": "Qahvazor brings you closer to your daily coffee, connecting you with coffee shops through convenient subscription plans",
     "download": "Download on the"
   },
   "features": {
     "title": "Why Choose Qahvazor?",
     "feature-1": {
       "title": "Curated Coffee Selection",
-      "description": "Access a variety of premium coffee blends, handpicked from the best local roasters."
+      "description": "Get access to a variety of the best quality coffee."
     },
     "feature-2": {
-      "title": "Support Local Coffee Shops",
-      "description": "Enjoy great coffee while supporting local cafes and roasters in your community."
+      "title": "Easy to use",
+      "description": "Order coffee from your favorite coffee shops in one click!"
     },
     "feature-3": {
       "title": "Flexible Subscriptions",
@@ -36,7 +36,7 @@
     "subscription-1": {
       "title": "Basic Package",
       "description": "Perfect for coffee enthusiasts starting their journey.",
-      "price": "$9.99",
+      "price": "199 990 uzs",
       "features": [
         "1 cup per day",
         "Access to basic coffee options (e.g., Americano, Espresso)",
@@ -47,7 +47,7 @@
     "subscription-2": {
       "title": "Standart Selection",
       "description": "Perfect for Coffee lovers who need a bit more variety.",
-      "price": "$19.99",
+      "price": "299 990 uzs",
       "features": [
         "2 cups per day",
         "Access to a wider range of coffee types (e.g., Cappuccino, Latte)",
@@ -58,7 +58,7 @@
     "subscription-3": {
       "title": "Premium Choice",
       "description": "Perfect for Connoisseurs who want the ultimate coffee experience.",
-      "price": "$29.99",
+      "price": "399 990 uzs",
       "features": [
         "3 cups per day",
         "Access to all coffee types, including specialty coffees",

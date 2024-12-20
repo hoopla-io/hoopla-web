@@ -20,7 +20,7 @@ const Hero = () => {
         priority
       />
       {/* <div className="absolute inset-0 bg-black bg-opacity-50" /> */}
-      <div className="relative z-10 text-center">
+      <div className="relative z-10 text-center w-full">
         <motion.h1
           className="text-4xl md:text-6xl font-bold mb-4 text-main drop-shadow-lg max-w-[95%] md:max-w-[85%] lg:max-w-[75%] xl:max-w-[65%] mx-auto"
           initial={{ opacity: 0, y: 20 }}
