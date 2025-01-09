@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import CupImage3D from "@/public/images/cup-3d.webp";
-import CupImage3D2 from "@/public/images/cup-3d-2.webp";
-import CupImage3D3 from "@/public/images/cup-3d-3.webp";
+// import CupImage3D2 from "@/public/images/cup-3d-2.webp";
+// import CupImage3D3 from "@/public/images/cup-3d-3.webp";
 import { Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -25,18 +25,18 @@ const SubscriptionPlans = () => {
       ],
       image: CupImage3D,
     },
-    {
-      name: t("subscriptions.subscription-2.title"),
-      description: t("subscriptions.subscription-2.description"),
-      price: t("subscriptions.subscription-2.price"),
-      features: [
-        t("subscriptions.subscription-2.features.0"),
-        t("subscriptions.subscription-2.features.1"),
-        t("subscriptions.subscription-2.features.2"),
-        t("subscriptions.subscription-2.features.3"),
-      ],
-      image: CupImage3D2,
-    },
+    // {
+    //   name: t("subscriptions.subscription-2.title"),
+    //   description: t("subscriptions.subscription-2.description"),
+    //   price: t("subscriptions.subscription-2.price"),
+    //   features: [
+    //     t("subscriptions.subscription-2.features.0"),
+    //     t("subscriptions.subscription-2.features.1"),
+    //     t("subscriptions.subscription-2.features.2"),
+    //     t("subscriptions.subscription-2.features.3"),
+    //   ],
+    //   image: CupImage3D2,
+    // },
     {
       name: t("subscriptions.subscription-3.title"),
       description: t("subscriptions.subscription-3.description"),
@@ -47,7 +47,7 @@ const SubscriptionPlans = () => {
         t("subscriptions.subscription-3.features.2"),
         t("subscriptions.subscription-3.features.3"),
       ],
-      image: CupImage3D3,
+      image: CupImage3D,
     },
   ];
 
@@ -57,7 +57,7 @@ const SubscriptionPlans = () => {
         <h2 className="text-3xl font-bold text-center mb-12">
           {t("subscriptions.title")}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center">
           {plans.map((plan, index) => (
             <motion.div
               key={index}

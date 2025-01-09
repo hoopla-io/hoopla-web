@@ -1,17 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./Sheet";
 import { useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { cn } from "@/lib/utils";
 // import Link from "next/link";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const pathname = usePathname();
   const t = useTranslations();
 
   useEffect(() => {
@@ -51,15 +53,26 @@ const Header = () => {
 
             {/* Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-main hover:text-main/80 transition-colors font-light text-base"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (pathname.startsWith(item.href) && item.href !== "/");
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={cn(
+                      "text-main hover:text-main/80 transition-colors font-light text-base",
+                      {
+                        "font-semibold": isActive,
+                      }
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </nav>
 
             <LocaleSwitcher className="hidden lg:flex" />

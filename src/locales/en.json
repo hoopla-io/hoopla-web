@@ -36,7 +36,7 @@
     "subscription-1": {
       "title": "Basic Package",
       "description": "Perfect for coffee enthusiasts starting their journey.",
-      "price": "199 990 uzs",
+      "price": "199 000 uzs",
       "features": [
         "1 cup per day",
         "Access to basic coffee options (e.g., Americano, Espresso)",
@@ -47,7 +47,7 @@
     "subscription-2": {
       "title": "Standart Selection",
       "description": "Perfect for Coffee lovers who need a bit more variety.",
-      "price": "299 990 uzs",
+      "price": "299 000 uzs",
       "features": [
         "2 cups per day",
         "Access to a wider range of coffee types (e.g., Cappuccino, Latte)",
@@ -58,9 +58,9 @@
     "subscription-3": {
       "title": "Premium Choice",
       "description": "Perfect for Connoisseurs who want the ultimate coffee experience.",
-      "price": "399 990 uzs",
+      "price": "399 000 uzs",
       "features": [
-        "3 cups per day",
+        "1 cups per day",
         "Access to all coffee types, including specialty coffees",
         "Unlimited coffee shops",
         "Luxurious and exclusive for coffee enthusiasts"
