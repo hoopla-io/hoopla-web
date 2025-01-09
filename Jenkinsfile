@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+
     environment {
         GITHUB_CREDENTIALS_ID = 'd3235179-5c74-45b7-a019-9695b49eae92'
         SERVER_USERNAME = credentials('5f60409a-e740-4e64-af81-10e5c804acb5')
