@@ -109,6 +109,7 @@
     "send": "Send",
     "success": "Thank you for reaching out!",
     "success-subtitle": "We'll get back to you soon.",
+    "error": "Something went wrong. Please try again later.",
     "location": "Tashkent city, Shaykhantakhur district, Ukchi street, 5"
   },
   "newsletter": {

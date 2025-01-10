@@ -15,6 +15,7 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const t = useTranslations();
 
@@ -25,20 +26,37 @@ export default function ContactForm() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+    try {
+      e.preventDefault();
+      setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
 
-    // Here you would typically send the form data to your backend
-    // console.log("Form submitted:", formState);
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormState({ name: "", email: "", subject: "", message: "" });
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormState({ name: "", email: "", subject: "", message: "" });
 
-    setTimeout(() => setIsSubmitted(false), 5000);
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch {
+      setIsSubmitting(false);
+      setIsError(true);
+
+      setTimeout(() => {
+        setIsError(false);
+      }, 5000);
+    }
   };
 
   return (
@@ -46,6 +64,7 @@ export default function ContactForm() {
       <h2 className="text-2xl font-bold text-main mb-6">
         {t("contacts.contact-us")}
       </h2>
+
       {!isSubmitted ? (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -96,6 +115,11 @@ export default function ContactForm() {
               required
             />
           </div>
+          {isError && (
+            <p className="my-2 text-xl text-red-500 text-center">
+              {t("contacts.error")}
+            </p>
+          )}
           <motion.button
             type="submit"
             disabled={isSubmitting}
@@ -133,6 +157,7 @@ export default function ContactForm() {
           </p>
         </motion.div>
       )}
+
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-16 h-16 bg-primary opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary opacity-10 rounded-full translate-x-1/4 translate-y-1/4"></div>
