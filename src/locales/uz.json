@@ -1,5 +1,5 @@
 {
-  "title": "Qahvazor",
+  "title": "Hoopla",
   "nav": {
     "home": "Bosh sahifa",
     "about": "Biz haqimizda",
@@ -9,11 +9,11 @@
   },
   "hero": {
     "title": "Qahva uchun shirin obuna",
-    "subtitle": "Qahvazor sizni kundalik qahvangizga yaqinlashtiradi, qulay obuna rejalari orqali sizni qahvaxonalar bilan bog‘laydi",
+    "subtitle": "Hoopla sizni kundalik qahvangizga yaqinlashtiradi, qulay obuna rejalari orqali sizni qahvaxonalar bilan bog‘laydi",
     "download": "Yuklab olish"
   },
   "features": {
-    "title": "Nega Qahvazorni tanlash kerak?",
+    "title": "Nega Hooplani tanlash kerak?",
     "feature-1": {
       "title": "Saralangan qahva",
       "description": "Eng sifatli kofening xilma-xilligidan bahramand bo‘ling."
@@ -73,9 +73,9 @@
   },
   "our-story": {
     "title": "Bizning hikoyamiz",
-    "part-1": "Qahvazor oddiy g‘oyadan kelib chiqqan: ajoyib qahvani yanada arzon qilish. Biz kunlaringiz yanada mazali va xushbo‘y bo‘lishi, qahvadan bahramand bo‘lish yanada qulay va oson bo‘lishi uchun eng yaxshi mahalliy qahvaxonalar bilan hamkorlik qilamiz. Didingiz qanday bo‘lishidan qat’i nazar, bizning sinchkovlik bilan tanlangan obunangiz har doim o‘zingiz uchun yangi va ajoyib narsalarni kashf etishingizni kafolatlaydi.",
-    "part-2": "Biz mahalliy korxonalarni qo‘llab-quvvatlash uchun shu yerdamiz, shu bilan birga qahvani yaxshi ko‘radiganlarga sevimli qahvalaridan bahramand bo‘lishning oson yo‘lini taqdim etamiz. Qahvazor - bu sizning yuqori darajadagi qahva tajribalari olamiga ulanishingiz, barchasi bitta obunada.",
-    "part-3": "Qahvazorda kofe ichimlikdan ko'proq - bu odamlar, hikoyalar va madaniyatlarni bog'laydigan ko'prik. Har bir qultum bilan siz shunchaki pivo ichishdan zavqlanmaysiz, balki jonli ichimlikning bir qismiga aylanasiz. Sifat, haqiqiylik va aloqani qadrlaydigan jamoa, keling, bir vaqtning o'zida qahva tajribangizni qayta yaratamiz."
+    "part-1": "Hoopla oddiy g‘oyadan kelib chiqqan: ajoyib qahvani yanada arzon qilish. Biz kunlaringiz yanada mazali va xushbo‘y bo‘lishi, qahvadan bahramand bo‘lish yanada qulay va oson bo‘lishi uchun eng yaxshi mahalliy qahvaxonalar bilan hamkorlik qilamiz. Didingiz qanday bo‘lishidan qat’i nazar, bizning sinchkovlik bilan tanlangan obunangiz har doim o‘zingiz uchun yangi va ajoyib narsalarni kashf etishingizni kafolatlaydi.",
+    "part-2": "Biz mahalliy korxonalarni qo‘llab-quvvatlash uchun shu yerdamiz, shu bilan birga qahvani yaxshi ko‘radiganlarga sevimli qahvalaridan bahramand bo‘lishning oson yo‘lini taqdim etamiz. Hoopla - bu sizning yuqori darajadagi qahva tajribalari olamiga ulanishingiz, barchasi bitta obunada.",
+    "part-3": "Hooplada kofe ichimlikdan ko'proq - bu odamlar, hikoyalar va madaniyatlarni bog'laydigan ko'prik. Har bir qultum bilan siz shunchaki pivo ichishdan zavqlanmaysiz, balki jonli ichimlikning bir qismiga aylanasiz. Sifat, haqiqiylik va aloqani qadrlaydigan jamoa, keling, bir vaqtning o'zida qahva tajribangizni qayta yaratamiz."
   },
   "footer": {
     "quick-links": {
@@ -96,7 +96,7 @@
       "placeholder": "Sizning elektron pochta manzilingiz",
       "button": "Obuna"
     },
-    "author": "© 2023 Qahvazor. Barcha huquqlar himoyalangan. Qahva tajribangizni oshiring."
+    "author": "© 2023 Hoopla. Barcha huquqlar himoyalangan. Qahva tajribangizni oshiring."
   },
   "contacts": {
     "title": "Biz bilan bog'lanish uchun",

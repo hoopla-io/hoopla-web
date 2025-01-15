@@ -28,7 +28,7 @@ export default function Map() {
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={position} icon={marker}>
           <Popup>
-            Qahvazor HQ <br /> {t("contacts.location")}
+            Hoopla HQ <br /> {t("contacts.location")}
           </Popup>
         </Marker>
       </MapContainer>

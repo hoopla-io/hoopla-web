@@ -24,10 +24,13 @@ export async function POST(request: Request) {
 
     // Email options
     const mailOptions = {
-      from: email, // User's email
+      from: `"${name}" <${email}>`, // User's email
       to: "davronbekov.otabek@gmail.com", // Recipient email
-      subject: `Qahvazor Web`,
+      subject: `Hoopla Web (${name})`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: `<p><strong>Name:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Message:</strong></p><p>${message}</p>`,
     };
 
     // Send email

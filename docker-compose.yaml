@@ -1,5 +1,5 @@
 services:
-  qahvazor-web:
+  hoopla-web:
     build:
       context: .
     ports:

@@ -37,7 +37,7 @@ const Footer = () => {
             </h3>
             <div className="flex space-x-4">
               <Link
-                href="https://www.instagram.com/qahvazor/"
+                href="https://www.instagram.com/hoopla.uz/"
                 target="_blank"
                 aria-label="Instagram"
                 className="hover:text-primary transition-colors"
@@ -45,7 +45,7 @@ const Footer = () => {
                 <Instagram />
               </Link>
               <Link
-                href="https://www.facebook.com/qahvazor"
+                href="https://www.facebook.com/hoopla.uz/"
                 target="_blank"
                 aria-label="Facebook"
                 className="hover:text-primary transition-colors"
@@ -53,7 +53,7 @@ const Footer = () => {
                 <Facebook />
               </Link>
               <Link
-                href="https://twitter.com/qahvazor"
+                href="https://twitter.com/hoopla.uz/"
                 target="_blank"
                 aria-label="Twitter"
                 className="hover:text-primary transition-colors"
@@ -76,17 +76,15 @@ const Footer = () => {
                 type="submit"
                 className="bg-primary text-white px-4 py-2 rounded-r-md  hover:text-cream transition-colors"
               >
-                {
-                  t("footer.newsletter.button")
-                }
+                {t("footer.newsletter.button")}
               </button>
             </form>
           </div>
         </div>
         <div className="mt-8 text-center">
           <p>
-            &copy; 2024 Qahvazor. All Rights Reserved. Elevate Your Coffee
-            Experience.
+            &copy; {new Date().getFullYear()} Hoopla. All Rights Reserved.
+            Elevate Your Coffee Experience.
           </p>
         </div>
       </div>

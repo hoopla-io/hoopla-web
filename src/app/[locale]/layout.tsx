@@ -40,40 +40,40 @@ export const metadata = {
     },
   ],
   title: {
-    default: "Qahvazor | Premium Coffee Subscriptions",
-    template: "%s - Qahvazor",
+    default: "Hoopla | Premium Coffee Subscriptions",
+    template: "%s - Hoopla",
   },
   description:
-    "Discover Qahvazor, your trusted coffee subscription service connecting you to the finest coffee roasters.",
+    "Discover Hoopla, your trusted coffee subscription service connecting you to the finest coffee roasters.",
   keywords: [
     "Coffee",
     "Subscriptions",
-    "Qahvazor",
+    "Hoopla",
     "Ethical Coffee",
     "Premium Coffee",
   ],
   openGraph: {
-    title: "Qahvazor | Premium Coffee Subscriptions",
+    title: "Hoopla | Premium Coffee Subscriptions",
     description:
       "Your trusted coffee subscription service connecting you to the finest coffee roasters.",
-    url: "https://qahvazor.com",
+    url: "https://hoopla.uz",
     images: [
       {
-        url: "https://qahvazor.com/images/og-image.jpg",
+        url: "https://hoopla.uz/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Qahvazor",
+        alt: "Hoopla",
       },
     ],
-    site_name: "Qahvazor",
+    site_name: "Hoopla",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@Qahvazor",
-    title: "Qahvazor | Premium Coffee Subscriptions",
+    site: "@Hoopla",
+    title: "Hoopla | Premium Coffee Subscriptions",
     description:
-      "Discover Qahvazor, your trusted coffee subscription service connecting you to the finest coffee roasters.",
-    images: ["https://qahvazor.com/images/og-image.jpg"],
+      "Discover Hoopla, your trusted coffee subscription service connecting you to the finest coffee roasters.",
+    images: ["https://hoopla.uz/images/og-image.jpg"],
   },
   robots: "index, follow",
 };
