@@ -5,18 +5,35 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export default function Newsletter() {
-  const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [email, setEmail] = useState<string>("");
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   const t = useTranslations();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the email to your backend
-    // console.log("Newsletter subscription:", email);
-    setIsSubmitted(true);
-    setEmail("");
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.error || "Something went wrong.");
+      }
+
+      setIsSubmitted(true);
+      setEmail("");
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Unknown error occurred.");
+    }
   };
 
   return (
@@ -64,12 +81,11 @@ export default function Newsletter() {
               d="M5 13l4 4L19 7"
             />
           </svg>
-          <p className="mt-2 text-xl">Thank you for subscribing!</p>
+          <p className="mt-2 text-xl">{t("newsletter.success")}</p>
         </motion.div>
       )}
-      <p className="mt-4 text-sm text-white/80">
-        {t("newsletter.time")}
-      </p>
+      {error && <p className="mt-4 text-red-500">{error}</p>}
+      <p className="mt-4 text-sm text-white/80">{t("newsletter.time")}</p>
     </div>
   );
 }

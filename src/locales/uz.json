@@ -117,6 +117,9 @@
     "description": "Eng so'nggi kofe yangiliklari va eksklyuziv takliflardan xabardor bo'lish uchun axborot byulletenimizga obuna bo'ling.",
     "placeholder": "Sizning elektron pochta manzilingiz",
     "button": "Obuna",
-    "time": "24-48 soat ichida javob beramiz."
+    "time": "24-48 soat ichida javob beramiz.",
+    "success": "Sizning elektron pochta manzilingiz muvaffaqiyatli obuna qilindi.",
+    "success-subtitle": "Eng so'nggi kofe yangiliklari va eksklyuziv takliflardan xabardor bo'ling.",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
   }
 }
