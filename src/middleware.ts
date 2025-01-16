@@ -21,7 +21,10 @@ export default async function middleware(req: NextRequest) {
 
   if (isAdminRoute) {
     // Check if the user has a valid session using the NextAuth JWT
-    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+    const token = await getToken({
+      req,
+      secret: "uxdLwK9qsNjYZe7rdQPIqBgpi5jI6Kb8MKvDZ9bblpU=",
+    });
 
     console.log({ token });
 
