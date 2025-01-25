@@ -3,33 +3,52 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
-import PartnersImageSAFIA from "@/public/images/safia-logo.webp";
-import PartnersImageAROMA from "@/public/images/aroma-coffee.webp";
-import PartnersImageCapito from "@/public/images/capito.webp";
-import PartnersImageCucucina from "@/public/images/cucucina.webp";
-import PartnersImageDipndip from "@/public/images/dipndip.webp";
-import PartnersImageCaffelito from "@/public/images/caffelito.webp";
+// import PartnersImageSAFIA from "@/public/images/safia-logo.webp";
+// import PartnersImageAROMA from "@/public/images/aroma-coffee.webp";
+// import PartnersImageCapito from "@/public/images/capito.webp";
+// import PartnersImageCucucina from "@/public/images/cucucina.webp";
+// import PartnersImageDipndip from "@/public/images/dipndip.webp";
+// import PartnersImageCaffelito from "@/public/images/caffelito.webp";
+import PartnersImageQahvachi from "@/public/images/qahvachi.jpg";
 import { useTranslations } from "next-intl";
 
 const partners = [
-  { name: "Eco Farms", logo: PartnersImageSAFIA },
-  { name: "Bean Lovers", logo: PartnersImageAROMA },
-  { name: "Capito", logo: PartnersImageCapito },
-  { name: "Cucucina", logo: PartnersImageCucucina },
-  { name: "Dipndip", logo: PartnersImageDipndip },
-  { name: "Caffelito", logo: PartnersImageCaffelito },
-  { name: "Organic Growers", logo: PartnersImageSAFIA },
-  { name: "Sustainable Roasters", logo: PartnersImageAROMA },
-  { name: "Capito 2", logo: PartnersImageCapito },
-  { name: "Cucucina 2", logo: PartnersImageCucucina },
-  { name: "Dipndip 2", logo: PartnersImageDipndip },
-  { name: "Caffelito 2", logo: PartnersImageCaffelito },
-  { name: "Sustainable Brew", logo: PartnersImageSAFIA },
-  { name: "Coffee Connoisseurs", logo: PartnersImageAROMA },
-  { name: "Capito 3", logo: PartnersImageCapito },
-  { name: "Cucucina 3", logo: PartnersImageCucucina },
-  { name: "Dipndip 3", logo: PartnersImageDipndip },
-  { name: "Caffelito 3", logo: PartnersImageCaffelito },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  // { name: "Eco Farms", logo: PartnersImageSAFIA },
+  // { name: "Bean Lovers", logo: PartnersImageAROMA },
+  // { name: "Capito", logo: PartnersImageCapito },
+  // { name: "Cucucina", logo: PartnersImageCucucina },
+  // { name: "Dipndip", logo: PartnersImageDipndip },
+  // { name: "Caffelito", logo: PartnersImageCaffelito },
+  // { name: "Organic Growers", logo: PartnersImageSAFIA },
+  // { name: "Sustainable Roasters", logo: PartnersImageAROMA },
+  // { name: "Capito 2", logo: PartnersImageCapito },
+  // { name: "Cucucina 2", logo: PartnersImageCucucina },
+  // { name: "Dipndip 2", logo: PartnersImageDipndip },
+  // { name: "Caffelito 2", logo: PartnersImageCaffelito },
+  // { name: "Sustainable Brew", logo: PartnersImageSAFIA },
+  // { name: "Coffee Connoisseurs", logo: PartnersImageAROMA },
+  // { name: "Capito 3", logo: PartnersImageCapito },
+  // { name: "Cucucina 3", logo: PartnersImageCucucina },
+  // { name: "Dipndip 3", logo: PartnersImageDipndip },
+  // { name: "Caffelito 3", logo: PartnersImageCaffelito },
 ];
 
 const Partners = () => {
