@@ -10,7 +10,10 @@
   "hero": {
     "title": "Qahva uchun shirin obuna",
     "subtitle": "Hoopla sizni kundalik qahvangizga yaqinlashtiradi, qulay obuna rejalari orqali sizni qahvaxonalar bilan bog‘laydi",
-    "download": "Yuklab olish"
+    "download": "Yuklab olish",
+    "sweet": "Kundalik qahva",
+    "subscription": "Uchun",
+    "for-coffee": "Shirin obuna"
   },
   "features": {
     "title": "Nega Hooplani tanlash kerak?",

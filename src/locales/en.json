@@ -10,7 +10,10 @@
   "hero": {
     "title": "Sweet Subscription for Coffee",
     "subtitle": "Hoopla brings you closer to your daily coffee, connecting you with coffee shops through convenient subscription plans",
-    "download": "Download on the"
+    "download": "Download on the",
+    "sweet": "Sweet",
+    "subscription": "Subscription",
+    "for-coffee": "For coffee"
   },
   "features": {
     "title": "Why Choose Hoopla?",
