@@ -48,7 +48,7 @@ const Header = () => {
               href="/"
               className={`flex items-center space-x-2 text-primary`}
             >
-              <span className={`text-xl font-bold font-eugusto`}>Hoopla</span>
+              <span className={`text-xl font-bold font-eugusto`}>hoopla</span>
             </Link>
 
             {/* Navigation */}
