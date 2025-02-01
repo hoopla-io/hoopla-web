@@ -8,6 +8,7 @@ import CupImage3D from "@/public/images/cup-3d.webp";
 // import CupImage3D3 from "@/public/images/cup-3d-3.webp";
 import { Check } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Squares from "@/components/Squares/Squares";
 
 const SubscriptionPlans = () => {
   const t = useTranslations();
@@ -52,9 +53,17 @@ const SubscriptionPlans = () => {
   ];
 
   return (
-    <section className="py-16 bg-main text-white" id="plans">
+    <section className="py-16 bg-main text-white relative" id="plans">
+      <Squares
+        speed={0.4}
+        squareSize={30}
+        direction="diagonal" // up, down, left, right, diagonal
+        // borderColor="#fff"
+        hoverFillColor="#222"
+        className="absolute top-0 left-0 w-full h-full opacity-20"
+      />
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2 className="text-3xl font-bold text-center mb-12 relative z-10">
           {t("subscriptions.title")}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center">
@@ -120,6 +129,8 @@ const SubscriptionPlans = () => {
 
               {/* Hover effect overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-main/5 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-main/50 blur-3xl transition-all duration-500 group-hover:bg-primary/20" />
             </motion.div>
           ))}
         </div>
