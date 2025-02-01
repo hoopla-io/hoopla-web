@@ -129,8 +129,6 @@ const SubscriptionPlans = () => {
 
               {/* Hover effect overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-main/5 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-main/50 blur-3xl transition-all duration-500 group-hover:bg-primary/20" />
             </motion.div>
           ))}
         </div>
