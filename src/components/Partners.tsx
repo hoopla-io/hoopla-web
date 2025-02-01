@@ -11,6 +11,7 @@ import Image from "next/image";
 // import PartnersImageCaffelito from "@/public/images/caffelito.webp";
 import PartnersImageQahvachi from "@/public/images/qahvachi.jpg";
 import { useTranslations } from "next-intl";
+import { AspectRatio } from "./ui/aspect-ratio";
 
 const partners = [
   { name: "Qahvachi", logo: PartnersImageQahvachi },
@@ -100,15 +101,16 @@ const Partners = () => {
               {[...partners, ...partners].map((partner, index) => (
                 <div
                   key={`${partner.name}-${index}`}
-                  className="flex-shrink-0 w-40"
+                  className="flex-shrink-0 w-40 p-8 bg-main/10 rounded-md relative"
                 >
-                  <Image
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    width={160}
-                    height={80}
-                    className="max-w-full h-auto"
-                  />
+                  <AspectRatio ratio={1}>
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      layout="fill"
+                      className="max-w-full h-auto"
+                    />
+                  </AspectRatio>
                 </div>
               ))}
             </motion.div>
