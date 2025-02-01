@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 const geistSans = Geist({
@@ -16,67 +16,142 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  icons: [
-    {
-      rel: "apple-touch-icon",
-      url: "/apple-touch-icon.png",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "32x32",
-      url: "/favicon-32x32.png",
-    },
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "16x16",
-      url: "/favicon-16x16.png",
-    },
-    {
-      rel: "icon",
-      url: "/favicon.ico",
-    },
-  ],
-  title: {
-    default: "Hoopla | Premium Coffee Subscriptions",
-    template: "%s - Hoopla",
-  },
-  description:
-    "Discover Hoopla, your trusted coffee subscription service connecting you to the finest coffee roasters.",
-  keywords: [
-    "Coffee",
-    "Subscriptions",
-    "Hoopla",
-    "Ethical Coffee",
-    "Premium Coffee",
-  ],
-  openGraph: {
-    title: "Hoopla | Premium Coffee Subscriptions",
-    description:
-      "Your trusted coffee subscription service connecting you to the finest coffee roasters.",
-    url: "https://hoopla.uz",
-    images: [
+// export const metadata = {
+//   icons: [
+//     {
+//       rel: "apple-touch-icon",
+//       url: "/apple-touch-icon.png",
+//     },
+//     {
+//       rel: "icon",
+//       type: "image/png",
+//       sizes: "32x32",
+//       url: "/favicon-32x32.png",
+//     },
+//     {
+//       rel: "icon",
+//       type: "image/png",
+//       sizes: "16x16",
+//       url: "/favicon-16x16.png",
+//     },
+//     {
+//       rel: "icon",
+//       url: "/favicon.ico",
+//     },
+//   ],
+//   title: {
+//     default: "Hoopla | Premium Coffee Subscriptions",
+//     template: "%s - Hoopla",
+//   },
+//   description:
+//     "Discover Hoopla, your trusted coffee subscription service connecting you to the finest coffee roasters.",
+//   keywords: [
+//     "Coffee",
+//     "Subscriptions",
+//     "Hoopla",
+//     "Ethical Coffee",
+//     "Premium Coffee",
+//   ],
+//   openGraph: {
+//     title: "Hoopla | Premium Coffee Subscriptions",
+//     description:
+//       "Your trusted coffee subscription service connecting you to the finest coffee roasters.",
+//     url: "https://hoopla.uz",
+//     images: [
+//       {
+//         url: "https://hoopla.uz/images/og-image.jpg",
+//         width: 1200,
+//         height: 630,
+//         alt: "Hoopla",
+//       },
+//     ],
+//     site_name: "Hoopla",
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     site: "@Hoopla",
+//     title: "Hoopla | Premium Coffee Subscriptions",
+//     description:
+//       "Discover Hoopla, your trusted coffee subscription service connecting you to the finest coffee roasters.",
+//     images: ["https://hoopla.uz/images/og-image.jpg"],
+//   },
+//   robots: "index, follow",
+// };
+
+export async function generateMetadata() {
+  const t = await getTranslations();
+  return {
+    icons: [
       {
-        url: "https://hoopla.uz/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Hoopla",
+        rel: "apple-touch-icon",
+        url: "/apple-touch-icon.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        url: "/favicon-32x32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        url: "/favicon-16x16.png",
+      },
+      {
+        rel: "icon",
+        url: "/favicon.ico",
       },
     ],
-    site_name: "Hoopla",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@Hoopla",
-    title: "Hoopla | Premium Coffee Subscriptions",
-    description:
-      "Discover Hoopla, your trusted coffee subscription service connecting you to the finest coffee roasters.",
-    images: ["https://hoopla.uz/images/og-image.jpg"],
-  },
-  robots: "index, follow",
-};
+    title: {
+      default: `Hoopla | ${t("hero.title")}`,
+      template: `%s | ${t("hero.title")}`,
+    },
+    description: t("hero.subtitle"),
+    openGraph: {
+      type: "website",
+      siteName: "Hoopla Uzbekistan",
+      images: [
+        {
+          url: "/og-image.jpg",
+          width: 1280,
+          height: 720,
+          alt: `Hoopla | ${t("hero.title")} | ${t("hero.subtitle")}`,
+        },
+      ],
+    },
+    creator: "Hoopla Uzbekistan",
+    metadataBase: new URL("https://hoopla.uz"),
+    generator: "Next.js",
+    applicationName: "Hoopla",
+    keywords: [
+      "Coffee",
+      "Subscriptions",
+      "Hoopla",
+      "Ethical Coffee",
+      "Premium Coffee",
+    ],
+    manifest: "/site.webmanifest",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        all: true,
+      },
+    },
+    other: {
+      "og:locale": "uz_UZ",
+      "og:locale:alternate": ["ru_RU", "en_US"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@Hoopla",
+      title: "Hoopla | Premium Coffee Subscriptions",
+      description: t("hero.subtitle"),
+      images: ["/images/og-image.jpg"],
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
