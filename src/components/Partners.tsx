@@ -4,36 +4,24 @@ import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 // import PartnersImageSAFIA from "@/public/images/safia-logo.webp";
-// import PartnersImageAROMA from "@/public/images/aroma-coffee.webp";
+import PartnersImageAROMA from "@/public/images/aroma-coffee.webp";
 // import PartnersImageCapito from "@/public/images/capito.webp";
 // import PartnersImageCucucina from "@/public/images/cucucina.webp";
 // import PartnersImageDipndip from "@/public/images/dipndip.webp";
 // import PartnersImageCaffelito from "@/public/images/caffelito.webp";
 import PartnersImageQahvachi from "@/public/images/qahvachi.jpg";
+import SpaceCoffee from "@/public/images/space-coffee.png";
 import { useTranslations } from "next-intl";
 import { AspectRatio } from "./ui/aspect-ratio";
 
 const partners = [
   { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Aroma Coffee", logo: PartnersImageAROMA },
+  { name: "Space Coffee", logo: SpaceCoffee },
   { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Qahvachi", logo: PartnersImageQahvachi },
+  { name: "Aroma Coffee", logo: PartnersImageAROMA },
+  { name: "Space Coffee", logo: SpaceCoffee },
   // { name: "Eco Farms", logo: PartnersImageSAFIA },
-  // { name: "Bean Lovers", logo: PartnersImageAROMA },
   // { name: "Capito", logo: PartnersImageCapito },
   // { name: "Cucucina", logo: PartnersImageCucucina },
   // { name: "Dipndip", logo: PartnersImageDipndip },
@@ -101,7 +89,7 @@ const Partners = () => {
               {[...partners, ...partners].map((partner, index) => (
                 <div
                   key={`${partner.name}-${index}`}
-                  className="flex-shrink-0 w-40 p-8 bg-main/10 rounded-md relative"
+                  className="flex-shrink-0 w-40 p-8 rounded-md relative bg-[#FBAB7E] bg-[linear-gradient(62deg,_#FBAB7E_0%,_#F7CE68_100%)]"
                 >
                   <AspectRatio ratio={1}>
                     <Image
