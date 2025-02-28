@@ -34,15 +34,15 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`fixed w-full z-[9999] transition-all duration-300 ${
-        isScrolled ? "py-2" : "py-4"
+      className={`fixed w-full z-[9999]  transition-all duration-300 ${
+        isScrolled ? "py-2 bg-[#f5f5f0]/50 backdrop-blur-md shadow-lg" : "py-4"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4">
-        <div className="backdrop-blur-md bg-[#f5f5f0]/50 rounded-2xl shadow-lg px-6 py-3">
+        <div className="py-2">
           <div className="flex items-center justify-between">
             <Link
               href="/"
@@ -63,7 +63,7 @@ const Header = () => {
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      "text-main hover:text-main/80 transition-colors font-light text-base",
+                      "text-main hover:text-main/80 transition-colors font-normal text-base",
                       {
                         "font-semibold": isActive,
                       }

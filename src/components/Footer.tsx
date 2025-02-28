@@ -20,7 +20,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="hover:underline">
+                <Link href="/terms-of-use" className="hover:underline">
                   {t("footer.quick-links.terms-of-service")}
                 </Link>
               </li>
