@@ -81,11 +81,14 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex justify-between">
           <p>
             &copy; {new Date().getFullYear()} Hoopla. All Rights Reserved.
             Elevate Your Coffee Experience.
           </p>
+          <Link href="https://404studio.uz" className="hover:underline">
+            Designed by 404studio
+          </Link>
         </div>
       </div>
     </footer>

@@ -169,7 +169,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-primary selection:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-primary selection:text-white bg-white`}
       >
         <NextIntlClientProvider messages={messages}>
           <Header />
