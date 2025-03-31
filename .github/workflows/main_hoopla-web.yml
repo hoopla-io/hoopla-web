@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_fafb7a50a2294bef91d8bac65966df3c }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_a31ad39f0a0145e39aa9fe6b06891638 }}
+        registry: https://index.docker.io/v1/
+        username: ${{ secrets.AzureAppService_ContainerUsername_3309c9e0ef584197a88ab5c5128d0c1e }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_677453dafd2f4425a89443ebc96df953 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_fafb7a50a2294bef91d8bac65966df3c }}/appsvc/staticsite:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_3309c9e0ef584197a88ab5c5128d0c1e }}/hoopla-web:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'hoopla-web'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f9fd252830fd42428b09f62290299239 }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_fafb7a50a2294bef91d8bac65966df3c }}/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5572101a77a043c19b10c73b8e5c49f9 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_3309c9e0ef584197a88ab5c5128d0c1e }}/hoopla-web:${{ github.sha }}'
