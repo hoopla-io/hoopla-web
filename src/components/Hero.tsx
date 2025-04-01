@@ -117,7 +117,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Link
-                href="https://apps.apple.com/uz/app/itv-kino-seriallar-va-tv/id1144347735"
+                href="https://apps.apple.com/app/hoopla/id6739946223"
                 target="_blank"
                 className="inline-flex items-center px-6 py-3 rounded-xl bg-black/80 hover:bg-black/90 backdrop-blur-sm transition-all duration-300 text-white border border-white/10 min-w-56 justify-center"
               >
@@ -134,7 +134,7 @@ const Hero = () => {
                 </div>
               </Link>
               <Link
-                href="https://play.google.com/store/apps/details?id=uz.i_tv.player&hl=en"
+                href="https://play.google.com/store/apps/details?id=uz.alphazet.hoopla"
                 className="inline-flex justify-center items-center px-6 py-3 rounded-xl bg-black/80 hover:bg-black/90 backdrop-blur-sm transition-all duration-300 text-white border border-white/10 min-w-56"
               >
                 <svg
