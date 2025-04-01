@@ -86,9 +86,6 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Hoopla. All Rights Reserved.
             Elevate Your Coffee Experience.
           </p>
-          <Link href="https://404studio.uz" className="hover:underline">
-            Designed by 404studio
-          </Link>
         </div>
       </div>
     </footer>
