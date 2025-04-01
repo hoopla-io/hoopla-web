@@ -81,7 +81,7 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        <div className="mt-8 flex justify-between">
+        <div className="mt-8 flex justify-center">
           <p>
             &copy; {new Date().getFullYear()} Hoopla. All Rights Reserved.
             Elevate Your Coffee Experience.
