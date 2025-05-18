@@ -4,15 +4,15 @@ import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 // import PartnersImageSAFIA from "@/public/images/safia-logo.webp";
-import PartnersImageAROMA from "@/public/images/aroma-coffee.webp";
 // import PartnersImageCapito from "@/public/images/capito.webp";
 // import PartnersImageCucucina from "@/public/images/cucucina.webp";
 // import PartnersImageDipndip from "@/public/images/dipndip.webp";
 // import PartnersImageCaffelito from "@/public/images/caffelito.webp";
+import PartnersImageAROMA from "@/public/images/aroma-coffee.webp";
 import PartnersImageQahvachi from "@/public/images/qahvachi.jpg";
 import SpaceCoffee from "@/public/images/space-coffee.png";
 import { useTranslations } from "next-intl";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const partners = [
   { name: "Qahvachi", logo: PartnersImageQahvachi },
