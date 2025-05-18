@@ -4,61 +4,26 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import CupImage3D from "@/public/images/cup-3d.webp";
-// import CupImage3D2 from "@/public/images/cup-3d-2.webp";
-// import CupImage3D3 from "@/public/images/cup-3d-3.webp";
 import { Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Squares from "@/components/Squares/Squares";
+import { use } from "react";
+import { Subscription } from "@/lib/utils";
 
-const SubscriptionPlans = () => {
+type PropsType = {
+  subscriptionsPromise: Promise<{ subscription: Subscription[] }>;
+};
+
+const SubscriptionPlans = ({ subscriptionsPromise }: PropsType) => {
   const t = useTranslations();
-
-  const plans = [
-    {
-      name: t("subscriptions.subscription-1.title"),
-      description: t("subscriptions.subscription-1.description"),
-      price: t("subscriptions.subscription-1.price"),
-      features: [
-        t("subscriptions.subscription-1.features.0"),
-        t("subscriptions.subscription-1.features.1"),
-        t("subscriptions.subscription-1.features.2"),
-        t("subscriptions.subscription-1.features.3"),
-      ],
-      image: CupImage3D,
-    },
-    // {
-    //   name: t("subscriptions.subscription-2.title"),
-    //   description: t("subscriptions.subscription-2.description"),
-    //   price: t("subscriptions.subscription-2.price"),
-    //   features: [
-    //     t("subscriptions.subscription-2.features.0"),
-    //     t("subscriptions.subscription-2.features.1"),
-    //     t("subscriptions.subscription-2.features.2"),
-    //     t("subscriptions.subscription-2.features.3"),
-    //   ],
-    //   image: CupImage3D2,
-    // },
-    {
-      name: t("subscriptions.subscription-3.title"),
-      description: t("subscriptions.subscription-3.description"),
-      price: t("subscriptions.subscription-3.price"),
-      features: [
-        t("subscriptions.subscription-3.features.0"),
-        t("subscriptions.subscription-3.features.1"),
-        t("subscriptions.subscription-3.features.2"),
-        t("subscriptions.subscription-3.features.3"),
-      ],
-      image: CupImage3D,
-    },
-  ];
+  const subscriptions = use(subscriptionsPromise).subscription;
 
   return (
     <section className="py-16 bg-main text-white relative" id="plans">
       <Squares
         speed={0.4}
         squareSize={30}
-        direction="diagonal" // up, down, left, right, diagonal
-        // borderColor="#fff"
+        direction="diagonal"
         hoverFillColor="#222"
         className="absolute top-0 left-0 w-full h-full opacity-20"
       />
@@ -67,7 +32,7 @@ const SubscriptionPlans = () => {
           {t("subscriptions.title")}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center">
-          {plans.map((plan, index) => (
+          {subscriptions.map((plan, index) => (
             <motion.div
               key={index}
               className="relative bg-white rounded-3xl p-8 text-gray-900"
@@ -90,7 +55,7 @@ const SubscriptionPlans = () => {
                 }}
               >
                 <Image
-                  src={plan.image}
+                  src={CupImage3D}
                   alt={plan.name}
                   layout="fill"
                   objectFit="contain"
@@ -108,7 +73,6 @@ const SubscriptionPlans = () => {
                     {plan.price}
                   </span>
                 </div>
-                <p className="text-gray-500">{plan.description}</p>
 
                 {/* Features */}
                 <ul className="space-y-3">
@@ -121,13 +85,12 @@ const SubscriptionPlans = () => {
                       transition={{ delay: 0.2 + i * 0.1 }}
                     >
                       <Check className="min-w-4 max-w-4 sm:min-w-5 sm:max-w-5" />
-                      <p className="text-sm sm:text-base">{feature}</p>
+                      <p className="text-sm sm:text-base">{feature.feature}</p>
                     </motion.li>
                   ))}
                 </ul>
               </div>
 
-              {/* Hover effect overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}

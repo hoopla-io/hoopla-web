@@ -2,13 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { Link, usePathname } from "@/i18n/routing";
-import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "./Sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/Sheet";
 import { useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { cn } from "@/lib/utils";
-// import Link from "next/link";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,13 +31,10 @@ const Header = () => {
   ];
 
   return (
-    <motion.header
+    <header
       className={`fixed w-full z-[9999]  transition-all duration-300 ${
         isScrolled ? "py-2 bg-[#f5f5f0]/50 backdrop-blur-md shadow-lg" : "py-4"
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4">
         <div className="py-2">
@@ -102,7 +97,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 };
 

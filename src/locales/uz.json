@@ -37,9 +37,9 @@
   "subscriptions": {
     "title": "Obuna rejalari",
     "subscription-1": {
-      "title": "Asosiy paket",
+      "title": "Rootine Mon-Frida",
       "description": "Safarini boshlagan qahva ixlosmandlari uchun juda mos.",
-      "price": "199 000 so'm",
+      "price": "259 000 so'm",
       "features": [
         "Kuniga 1 stakan",
         "Asosiy kofe opsiyalariga kirish (masalan, Americano, Espresso)",
@@ -48,25 +48,14 @@
       ]
     },
     "subscription-2": {
-      "title": "Standart tanlov",
+      "title": "Loopla Everyday",
       "description": "Bir oz ko'proq xilma-xillikka muhtoj bo'lgan qahvani sevuvchilar uchun juda mos keladi.",
-      "price": "299 990 so'm",
+      "price": "359 000 so'm",
       "features": [
         "Kuniga 2 stakan",
         "Kengroq qahva turlari (masalan, Cappuccino, Latte)",
         "Cheklangan qahvaxonalar",
         "Turfa xillikni sevuvchi qahvaxo‘rlar uchun mos keladi."
-      ]
-    },
-    "subscription-3": {
-      "title": "Premium tanlov",
-      "description": "Ajoyib qahva tajribasini xohlaydigan bilimdonlar uchun juda mos keladi.",
-      "price": "349 000 so'm",
-      "features": [
-        "Kuniga 1 stakan",
-        "Barcha turdagi qahvalar, shu jumladan maxsus qahvalar",
-        "Barcha qahvaxonalar",
-        "Kuchli qahvaxo‘rlar uchun mos keladi"
       ]
     }
   },

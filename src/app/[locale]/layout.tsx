@@ -16,68 +16,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// export const metadata = {
-//   icons: [
-//     {
-//       rel: "apple-touch-icon",
-//       url: "/apple-touch-icon.png",
-//     },
-//     {
-//       rel: "icon",
-//       type: "image/png",
-//       sizes: "32x32",
-//       url: "/favicon-32x32.png",
-//     },
-//     {
-//       rel: "icon",
-//       type: "image/png",
-//       sizes: "16x16",
-//       url: "/favicon-16x16.png",
-//     },
-//     {
-//       rel: "icon",
-//       url: "/favicon.ico",
-//     },
-//   ],
-//   title: {
-//     default: "Hoopla | Premium Coffee Subscriptions",
-//     template: "%s - Hoopla",
-//   },
-//   description:
-//     "Discover Hoopla, your trusted coffee subscription service connecting you to the finest coffee roasters.",
-//   keywords: [
-//     "Coffee",
-//     "Subscriptions",
-//     "Hoopla",
-//     "Ethical Coffee",
-//     "Premium Coffee",
-//   ],
-//   openGraph: {
-//     title: "Hoopla | Premium Coffee Subscriptions",
-//     description:
-//       "Your trusted coffee subscription service connecting you to the finest coffee roasters.",
-//     url: "https://hoopla.uz",
-//     images: [
-//       {
-//         url: "https://hoopla.uz/images/og-image.jpg",
-//         width: 1200,
-//         height: 630,
-//         alt: "Hoopla",
-//       },
-//     ],
-//     site_name: "Hoopla",
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     site: "@Hoopla",
-//     title: "Hoopla | Premium Coffee Subscriptions",
-//     description:
-//       "Discover Hoopla, your trusted coffee subscription service connecting you to the finest coffee roasters.",
-//     images: ["https://hoopla.uz/images/og-image.jpg"],
-//   },
-//   robots: "index, follow",
-// };
-
 export async function generateMetadata() {
   const t = await getTranslations();
   return {
