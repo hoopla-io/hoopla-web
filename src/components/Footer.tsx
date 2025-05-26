@@ -25,7 +25,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/help-center" className="hover:underline">
+                <Link href="/contact" className="hover:underline">
                   {t("footer.quick-links.help-center")}
                 </Link>
               </li>

@@ -31,7 +31,9 @@ const SubscriptionPlans = ({ subscriptionsPromise }: PropsType) => {
         <h2 className="text-3xl font-bold text-center mb-12 relative z-10">
           {t("subscriptions.title")}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center">
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center`}
+        >
           {subscriptions.map((plan, index) => (
             <motion.div
               key={index}
