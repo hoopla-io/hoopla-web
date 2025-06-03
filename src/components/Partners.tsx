@@ -10,34 +10,17 @@ import Image from "next/image";
 // import PartnersImageCaffelito from "@/public/images/caffelito.webp";
 import PartnersImageAROMA from "@/public/images/aroma-coffee.webp";
 import PartnersImageQahvachi from "@/public/images/qahvachi.jpg";
-import SpaceCoffee from "@/public/images/space-coffee.png";
+import PlaceCoffee from "@/public/images/place.png";
 import { useTranslations } from "next-intl";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const partners = [
   { name: "Qahvachi", logo: PartnersImageQahvachi },
   { name: "Aroma Coffee", logo: PartnersImageAROMA },
-  { name: "Space Coffee", logo: SpaceCoffee },
+  { name: "Space Coffee", logo: PlaceCoffee },
   { name: "Qahvachi", logo: PartnersImageQahvachi },
   { name: "Aroma Coffee", logo: PartnersImageAROMA },
-  { name: "Space Coffee", logo: SpaceCoffee },
-  // { name: "Eco Farms", logo: PartnersImageSAFIA },
-  // { name: "Capito", logo: PartnersImageCapito },
-  // { name: "Cucucina", logo: PartnersImageCucucina },
-  // { name: "Dipndip", logo: PartnersImageDipndip },
-  // { name: "Caffelito", logo: PartnersImageCaffelito },
-  // { name: "Organic Growers", logo: PartnersImageSAFIA },
-  // { name: "Sustainable Roasters", logo: PartnersImageAROMA },
-  // { name: "Capito 2", logo: PartnersImageCapito },
-  // { name: "Cucucina 2", logo: PartnersImageCucucina },
-  // { name: "Dipndip 2", logo: PartnersImageDipndip },
-  // { name: "Caffelito 2", logo: PartnersImageCaffelito },
-  // { name: "Sustainable Brew", logo: PartnersImageSAFIA },
-  // { name: "Coffee Connoisseurs", logo: PartnersImageAROMA },
-  // { name: "Capito 3", logo: PartnersImageCapito },
-  // { name: "Cucucina 3", logo: PartnersImageCucucina },
-  // { name: "Dipndip 3", logo: PartnersImageDipndip },
-  // { name: "Caffelito 3", logo: PartnersImageCaffelito },
+  { name: "Space Coffee", logo: PlaceCoffee },
 ];
 
 const Partners = () => {
