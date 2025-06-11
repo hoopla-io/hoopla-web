@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
         hostname: "api.hoopla.uz",
       },
     ],
+    domains: ["api.hoopla.uz"],
   },
 };
 
