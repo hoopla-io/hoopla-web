@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       },
     ],
     domains: ["api.hoopla.uz"],
+    unoptimized: true,
   },
 };
 
