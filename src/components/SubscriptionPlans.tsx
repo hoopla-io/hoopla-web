@@ -18,6 +18,8 @@ const SubscriptionPlans = ({ subscriptionsPromise }: PropsType) => {
   const t = useTranslations();
   const subscriptions = use(subscriptionsPromise).subscription;
 
+  if (!subscriptions) return null;
+
   return (
     <section className="py-16 bg-main text-white relative" id="plans">
       <Squares

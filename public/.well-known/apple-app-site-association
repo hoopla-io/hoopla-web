@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "7HCQ68YM6S.alphazet.qahvazor-client"
+        ],
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  }
+}
