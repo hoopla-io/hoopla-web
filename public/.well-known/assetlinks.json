@@ -1,0 +1,11 @@
+[
+    {
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target": {
+        "namespace": "android_app",
+        "package_name": "uz.alphazet.hoopla",
+        "sha256_cert_fingerprints":
+            ["85:EA:85:83:F7:E5:0E:F9:B3:75:5A:F6:FB:69:A8:93:BA:68:E5:8B:54:C7:51:F0:81:B0:C8:56:E2:7A:79:E0"]
+        }
+    }
+]
