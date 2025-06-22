@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
+import DeepLink from "@/components/DeepLink";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -113,6 +114,7 @@ export default async function RootLayout({
           <Header />
           {children}
           <Footer />
+          <DeepLink />
         </NextIntlClientProvider>
       </body>
     </html>
