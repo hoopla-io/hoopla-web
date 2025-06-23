@@ -137,5 +137,9 @@
     "saturday": "Saturday",
     "sunday": "Sunday",
     "today": "Today"
+  },
+  "deeplink": {
+    "open-in-app": "Open in app",
+    "title": "Continue in the app"
   }
 }

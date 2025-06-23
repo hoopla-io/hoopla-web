@@ -136,5 +136,9 @@
     "saturday": "Shanba",
     "sunday": "Yakshanba",
     "today": "Bugun"
+  },
+  "deeplink": {
+    "open-in-app": "Ilovada ochish",
+    "title": "Ilovada davom etish"
   }
 }
