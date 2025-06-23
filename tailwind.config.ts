@@ -16,6 +16,7 @@ export default {
         success: "#4a934a",
         main: "#1a1a1a",
         primary: "#892235",
+        muted: "#262626",
       },
       fontFamily: {
         eugusto: ["Eugusto", "serif"],
