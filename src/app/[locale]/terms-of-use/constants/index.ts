@@ -4,7 +4,7 @@ export const terms = {
     lastUpdated: "Последнее обновление:",
     content: `
         <p>Об оказании услуг по предоставлению доступа к абонементу</p>
-        <p>Общество с ограниченной ответственностью <span class="font-bold">"ALPHAZET TECHNOLOGIES"</span> именуемое в дальнейшем "Компания", в лице директора, действующего на основании Устава, выражает предложение присоединиться к Публичной оферте об оказании услуг по предоставлению доступа к абонементу (далее – Оферта, а равно – Соглашение либо Договор) на изложенных ниже условиях:</p>
+        <p>Общество с ограниченной ответственностью <span class="font-bold">"HOOPLA BRIDGE"</span> именуемое в дальнейшем "Компания", в лице директора, действующего на основании Устава, выражает предложение присоединиться к Публичной оферте об оказании услуг по предоставлению доступа к абонементу (далее – Оферта, а равно – Соглашение либо Договор) на изложенных ниже условиях:</p>
         <br />
         <div class="space-y-2 mb-8">
           <h2 class="font-bold text-xl">ТЕРМИНЫ И ОПРЕДЕЛЕНИЯ</h2>
@@ -72,7 +72,7 @@ export const terms = {
     lastUpdated: "Oxirgi yangilanish:",
     content: `
         <p>Abonementga kirish xizmatlarini taqdim etish bo‘yicha</p>
-        <p>Mas'uliyati cheklangan jamiyat <span class="font-bold">"ALPHAZET TECHNOLOGIES"</span> (keyingi o‘rinlarda "Kompaniya" deb yuritiladi), direktor nomidan, Ustav asosida ish yuritib, quyidagi shartlarda abonementga kirish xizmatlarini taqdim etish bo‘yicha Ommaviy ofertaga qo‘shilishni taklif qiladi (keyingi o‘rinlarda – Oferta, shuningdek, Kelishuv yoki Shartnoma).</p>
+        <p>Mas'uliyati cheklangan jamiyat <span class="font-bold">"HOOPLA BRIDGE"</span> (keyingi o‘rinlarda "Kompaniya" deb yuritiladi), direktor nomidan, Ustav asosida ish yuritib, quyidagi shartlarda abonementga kirish xizmatlarini taqdim etish bo‘yicha Ommaviy ofertaga qo‘shilishni taklif qiladi (keyingi o‘rinlarda – Oferta, shuningdek, Kelishuv yoki Shartnoma).</p>
         <br />
         <div class="space-y-2 mb-8">
           <h2 class="font-bold text-xl">ATAMALAR VA TA'RIFLAR</h2>
@@ -140,7 +140,7 @@ export const terms = {
     lastUpdated: "Last updated:",
     content: `
       <p>On providing access to the subscription</p>
-      <p>Limited Liability Company <span class="font-bold">"ALPHAZET TECHNOLOGIES"</span>, hereinafter referred to as the "Company," represented by the Director acting under the Charter, offers to enter into this Public Offer for the provision of access to the subscription (hereinafter referred to as the Offer, Agreement, or Contract) under the terms set forth below:</p>
+      <p>Limited Liability Company <span class="font-bold">"HOOPLA BRIDGE"</span>, hereinafter referred to as the "Company," represented by the Director acting under the Charter, offers to enter into this Public Offer for the provision of access to the subscription (hereinafter referred to as the Offer, Agreement, or Contract) under the terms set forth below:</p>
       <br />
       <div class="space-y-2 mb-8">
         <h2 class="font-bold text-xl">TERMS AND DEFINITIONS</h2>
