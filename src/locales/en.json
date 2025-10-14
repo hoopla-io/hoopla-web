@@ -9,11 +9,11 @@
   },
   "hero": {
     "title": "Sweet Subscription for Coffee",
-    "subtitle": "Hoopla brings you closer to your daily coffee, connecting you with coffee shops through convenient subscription plans",
+    "subtitle": "Hoopla brings you closer to your daily coffee, connecting you with coffee shops through convenient comfortable ordering options.",
     "download": "Download on the",
-    "sweet": "Sweet",
-    "subscription": "Subscription",
-    "for-coffee": "For coffee"
+    "text-1": "Order.",
+    "text-2": "Pick up.",
+    "text-3": "Enjoy."
   },
   "features": {
     "title": "Why Choose Hoopla?",
@@ -65,9 +65,9 @@
   },
   "our-story": {
     "title": "Our Story",
-    "part-1": "Hoopla was born from a simple idea: to make great coffee more accessible. We partner with the best local coffee shops to make your days more flavorful and enjoyable, and to make enjoying coffee even more convenient and easy. No matter your tastes, our carefully curated subscription ensures that you will always discover something new and delicious.",
-    "part-2": "We’re here to support local businesses while giving coffee lovers an effortless way to enjoy their favorite blends. Hoopla is your connection to a world of premium coffee experiences, all in one subscription.",
-    "part-3": "At Hoopla, coffee is more than a drink—it's a bridge that connects people, stories, and cultures. With every sip, you’re not just enjoying a brew; you’re becoming part of a vibrant community that values quality, authenticity, and connection. Let’s redefine your coffee experience, one cup at a time."
+    "part-1": "Hoopla started with a simple mission: to make coffee more accessible, faster, and closer to you. We believe everyone deserves great coffee without waiting in line. That's why we built a simple way to order your favorite drink from anywhere and pick it up fresh, right on time.",
+    "part-2": "We partner with local coffee shops to bring their best flavors to your fingertips — supporting small businesses while giving coffee lovers a smoother, smarter experience.",
+    "part-3": "At Hoopla, coffee isn’t just a drink — it’s a moment that connects people, places, and passion. With every order, you’re joining a community that values quality, time, and good taste — one cup at a time."
   },
   "footer": {
     "quick-links": {

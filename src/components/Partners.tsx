@@ -1,26 +1,34 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
-// import PartnersImageSAFIA from "@/public/images/safia-logo.webp";
-// import PartnersImageCapito from "@/public/images/capito.webp";
-// import PartnersImageCucucina from "@/public/images/cucucina.webp";
-// import PartnersImageDipndip from "@/public/images/dipndip.webp";
-// import PartnersImageCaffelito from "@/public/images/caffelito.webp";
-import PartnersImageAROMA from "@/public/images/aroma-coffee.webp";
+
+import { useTranslations } from "next-intl";
+
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+
+import { motion, useAnimation } from "framer-motion";
+
 import PartnersImageQahvachi from "@/public/images/qahvachi.jpg";
 import PlaceCoffee from "@/public/images/place.png";
-import { useTranslations } from "next-intl";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import LeafUzCoffee from "@/public/images/leaf-logo.png";
+import UnionCafe from "@/public/images/union-cafe.png";
+import CostaCoffee from "@/public/images/costa-coffee.png";
+import Qahva from "@/public/images/qahva.png";
 
 const partners = [
   { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Aroma Coffee", logo: PartnersImageAROMA },
   { name: "Space Coffee", logo: PlaceCoffee },
+  { name: "Leaf Uz", logo: LeafUzCoffee },
+  { name: "Union Cafe", logo: UnionCafe },
+  { name: "Costa Coffee", logo: CostaCoffee },
+  { name: "Qahva", logo: Qahva },
   { name: "Qahvachi", logo: PartnersImageQahvachi },
-  { name: "Aroma Coffee", logo: PartnersImageAROMA },
   { name: "Space Coffee", logo: PlaceCoffee },
+  { name: "Leaf Uz", logo: LeafUzCoffee },
+  { name: "Union Cafe", logo: UnionCafe },
+  { name: "Costa Coffee", logo: CostaCoffee },
+  { name: "Qahva", logo: Qahva },
 ];
 
 const Partners = () => {

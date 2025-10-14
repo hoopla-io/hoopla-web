@@ -25,7 +25,6 @@ const Header = () => {
   const navItems = [
     { name: t("nav.home"), href: "/" },
     { name: t("nav.about"), href: "/#our-story" },
-    { name: t("nav.plans"), href: "/#plans" },
     { name: t("nav.partners"), href: "/#partners" },
     { name: t("nav.contact"), href: "/contact" },
   ];

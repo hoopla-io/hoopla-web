@@ -8,12 +8,12 @@
     "contact": "Bog'lanish"
   },
   "hero": {
-    "title": "Qahva uchun shirin obuna",
-    "subtitle": "Hoopla sizni kundalik qahvangizga yaqinlashtiradi, qulay obuna rejalari orqali sizni qahvaxonalar bilan bog‘laydi",
+    "title": "Buyurtma ber. Olib ket. Bahra ol.",
+    "subtitle": "Hoopla sizni kundalik qahvangizga yaqinlashtiradi, qulay ilova orqali sizni qahvaxonalar bilan bog‘laydi",
     "download": "Yuklab olish",
-    "sweet": "Kundalik qahva",
-    "subscription": "Uchun",
-    "for-coffee": "Shirin obuna"
+    "text-1": "Buyurtma ber.",
+    "text-2": "Olib ket.",
+    "text-3": "Bahra ol."
   },
   "features": {
     "title": "Nega Hooplani tanlash kerak?",
@@ -65,9 +65,9 @@
   },
   "our-story": {
     "title": "Bizning hikoyamiz",
-    "part-1": "Hoopla oddiy g‘oyadan kelib chiqqan: ajoyib qahvani yanada arzon qilish. Biz kunlaringiz yanada mazali va xushbo‘y bo‘lishi, qahvadan bahramand bo‘lish yanada qulay va oson bo‘lishi uchun eng yaxshi mahalliy qahvaxonalar bilan hamkorlik qilamiz. Didingiz qanday bo‘lishidan qat’i nazar, bizning sinchkovlik bilan tanlangan obunangiz har doim o‘zingiz uchun yangi va ajoyib narsalarni kashf etishingizni kafolatlaydi.",
-    "part-2": "Biz mahalliy korxonalarni qo‘llab-quvvatlash uchun shu yerdamiz, shu bilan birga qahvani yaxshi ko‘radiganlarga sevimli qahvalaridan bahramand bo‘lishning oson yo‘lini taqdim etamiz. Hoopla - bu sizning yuqori darajadagi qahva tajribalari olamiga ulanishingiz, barchasi bitta obunada.",
-    "part-3": "Hooplada kofe ichimlikdan ko'proq - bu odamlar, hikoyalar va madaniyatlarni bog'laydigan ko'prik. Har bir qultum bilan siz shunchaki pivo ichishdan zavqlanmaysiz, balki jonli ichimlikning bir qismiga aylanasiz. Sifat, haqiqiylik va aloqani qadrlaydigan jamoa, keling, bir vaqtning o'zida qahva tajribangizni qayta yaratamiz."
+    "part-1": "Hoopla bitta oddiy maqsad bilan boshlandi — qahvani yanada qulay, tez va yaqin qilish. Biz har bir inson navbatsiz, kutmasdan ajoyib qahvadan bahramand bo‘lishi kerak, deb hisoblaymiz. Shuning uchun sevimli ichimlikni istalgan joydan buyurtma berib, yangi holatda o‘z vaqtida olib ketish imkonini yaratdik.",
+    "part-2": "Biz mahalliy qahvaxonalar bilan hamkorlik qilib, ularning eng yaxshi ta’mlarini sizga yaqinlashtiramiz — kichik bizneslarni qo‘llab-quvvatlab, qahvani olish jarayonini osonlashtiramiz.",
+    "part-3": "Hoopla uchun qahva — bu shunchaki ichimlik emas, u odamlarni, joylarni va hikoyalarni bog‘laydigan lahza. Har bir buyurtma bilan siz sifat, vaqt va didni qadrlaydigan jamoaning bir qismiga aylanasiz — har bir piyolada."
   },
   "footer": {
     "quick-links": {

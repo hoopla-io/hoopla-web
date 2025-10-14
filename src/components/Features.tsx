@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Coffee, Repeat, MapPin, HeartHandshake } from "lucide-react";
+import { Coffee, MapPin, HeartHandshake } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const features = [
@@ -14,11 +14,6 @@ const features = [
     icon: HeartHandshake,
     "title-key": "feature-2.title",
     "description-key": "feature-2.description",
-  },
-  {
-    icon: Repeat,
-    "title-key": "feature-3.title",
-    "description-key": "feature-3.description",
   },
   {
     icon: MapPin,
@@ -36,7 +31,7 @@ const Features = () => {
         <h2 className="text-3xl font-bold text-main text-center mb-12">
           {t("features.title")}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
