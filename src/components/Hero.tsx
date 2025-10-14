@@ -25,11 +25,11 @@ const Hero = () => {
         <div className="relative z-10 flex min-h-[calc(100vh-80px)] items-center px-6 lg:px-12 w-full">
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl md:text-7xl">
-              {t("hero.sweet")}
+              {t("hero.text-1")}
               <br />
-              {t("hero.subscription")}
+              {t("hero.text-2")}
               <br />
-              {t("hero.for-coffee")}
+              {t("hero.text-3")}
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               {t("hero.subtitle")}
