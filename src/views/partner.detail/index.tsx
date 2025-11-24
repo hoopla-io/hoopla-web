@@ -66,6 +66,9 @@ export default function PartnerDetailView(props: PropsType) {
   };
 
   const getSocialLinks = () => {
+    if (!partnerData.urls) {
+      return {};
+    }
     const links: { [key: string]: string } = {};
     partnerData.urls.forEach((url) => {
       links[url.urlType] = url.url;
@@ -335,7 +338,9 @@ export default function PartnerDetailView(props: PropsType) {
         </Card>
 
         {/* Social Links */}
-        <Card>
+        {
+          Object.keys(socialLinks).length > 0 && (
+            <Card>
           <CardContent className="px-6">
             <h3 className="font-semibold mb-4">{t("partner.social-links")}</h3>
             <div className="flex gap-4">
@@ -372,6 +377,8 @@ export default function PartnerDetailView(props: PropsType) {
             </div>
           </CardContent>
         </Card>
+          )
+        }
 
         {/* Available Drinks */}
         <div>
