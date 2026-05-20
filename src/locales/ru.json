@@ -125,7 +125,16 @@
     "view-full-schedule": "Просмотреть полное расписание",
     "hide-schedule": "Скрыть расписание",
     "open-today": "Открыто сегодня",
-    "phone": "Телефон"
+    "phone": "Телефон",
+    "todays-hours": "Сегодня работает",
+    "closed-today": "Сегодня закрыто",
+    "open-in-yandex": "Открыть в Яндекс Картах",
+    "photos": "Фотографии",
+    "menu": "Меню",
+    "instagram": "Instagram",
+    "website": "Сайт",
+    "uzs": "UZS",
+    "back": "Назад"
   },
   "weekdays": {
     "monday": "Понедельник",

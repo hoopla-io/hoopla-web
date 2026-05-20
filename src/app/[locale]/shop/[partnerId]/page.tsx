@@ -1,5 +1,9 @@
 import Loading from "@/components/Loading";
-import { getPartnerDetail } from "@/lib/utils";
+import {
+  getPartnerBanners,
+  getPartnerDetail,
+  getShopDrinks,
+} from "@/lib/utils";
 import PartnerDetailView from "@/views/partner.detail";
 import { Suspense } from "react";
 
@@ -10,13 +14,22 @@ export default async function Page({
     partnerId: string;
   }>;
 }) {
-  const partnerId = (await params).partnerId;
+  const { partnerId } = await params;
 
-  const partnerPromise = getPartnerDetail(partnerId);
+  const shopDataPromise = (async () => {
+    const partnerRequest = getPartnerDetail(partnerId);
+    const drinksRequest = getShopDrinks(partnerId);
+    const { partnerData } = await partnerRequest;
+    const [{ categories }, { banners }] = await Promise.all([
+      drinksRequest,
+      getPartnerBanners(partnerData?.partnerId ?? 0),
+    ]);
+    return { partnerData, categories, banners };
+  })();
 
   return (
     <Suspense fallback={<Loading />}>
-      <PartnerDetailView partnerPromise={partnerPromise} />
+      <PartnerDetailView shopDataPromise={shopDataPromise} />
     </Suspense>
   );
 }
