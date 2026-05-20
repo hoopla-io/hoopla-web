@@ -125,7 +125,16 @@
     "view-full-schedule": "To‘liq jadval",
     "hide-schedule": "Jadvalni yopish",
     "open-today": "Bugun ochiq",
-    "phone": "Telefon raqami"
+    "phone": "Telefon raqami",
+    "todays-hours": "Bugungi ish vaqti",
+    "closed-today": "Bugun yopiq",
+    "open-in-yandex": "Yandex Xaritada ochish",
+    "photos": "Suratlar",
+    "menu": "Menyu",
+    "instagram": "Instagram",
+    "website": "Sayt",
+    "uzs": "UZS",
+    "back": "Orqaga"
   },
   "weekdays": {
     "monday": "Dushanba",

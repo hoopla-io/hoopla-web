@@ -126,7 +126,16 @@
     "view-full-schedule": "View Full Schedule",
     "hide-schedule": "Hide Schedule",
     "open-today": "Open today",
-    "phone": "Phone"
+    "phone": "Phone",
+    "todays-hours": "Today's hours",
+    "closed-today": "Closed today",
+    "open-in-yandex": "Open in Yandex Maps",
+    "photos": "Photos",
+    "menu": "Menu",
+    "instagram": "Instagram",
+    "website": "Website",
+    "uzs": "UZS",
+    "back": "Back"
   },
   "weekdays": {
     "monday": "Monday",

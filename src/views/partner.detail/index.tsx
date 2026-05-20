@@ -1,408 +1,375 @@
 "use client";
 
-import { use, useState } from "react";
+import { use, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import {
-  ChevronLeft,
+  ArrowLeft,
   ChevronRight,
   Clock,
-  MapPin,
-  Phone,
+  Coffee,
   Globe,
   Instagram,
-  Facebook,
+  MapPin,
+  Phone,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
-import { PartnerData } from "@/lib/utils";
 import { notFound } from "next/navigation";
 
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import {
+  cn,
+  formatBalance,
+  type Banner,
+  type PartnerData,
+  type ShopDrink,
+  type ShopDrinkCategory,
+} from "@/lib/utils";
+import { useRouter } from "@/i18n/routing";
+
 type PropsType = {
-  partnerPromise: Promise<{ partnerData: PartnerData }>;
+  shopDataPromise: Promise<{
+    partnerData: PartnerData;
+    categories: ShopDrinkCategory[];
+    banners: Banner[];
+  }>;
 };
 
-export default function PartnerDetailView(props: PropsType) {
-  const partnerData = use(props.partnerPromise).partnerData;
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [showFullSchedule, setShowFullSchedule] = useState(false);
-
+export default function PartnerDetailView({ shopDataPromise }: PropsType) {
+  const { partnerData, categories: rawCategories, banners } = use(shopDataPromise);
   const t = useTranslations();
+  const router = useRouter();
+
+  const { categoryNames, hasRealCategories, allDrinks } = useMemo(() => {
+    const names = rawCategories.map((c) => c.name);
+    const hasReal = rawCategories.some(
+      (c) => c.name && c.name.toLowerCase() !== "other"
+    );
+    const flat = rawCategories.flatMap((c) => c.drinks);
+    return {
+      categoryNames: hasReal ? names : [],
+      hasRealCategories: hasReal,
+      allDrinks: flat,
+    };
+  }, [rawCategories]);
+
+  const [activeCategory, setActiveCategory] = useState<string>("");
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useEffect(() => {
+    if (categoryNames.length > 0 && !activeCategory) {
+      setActiveCategory(categoryNames[0]);
+    }
+  }, [categoryNames, activeCategory]);
 
   if (!partnerData) {
     return notFound();
   }
 
-  const allImages = [...partnerData.pictures.map((p) => p.pictureUrl)];
+  const pictures = partnerData.pictures ?? [];
+  const phoneNumbers = partnerData.phoneNumbers ?? [];
+  const workingHours = partnerData.workingHours ?? [];
+  const urls = partnerData.urls ?? [];
 
-  const goToMap = () => {
-    window.open(
-      `https://www.yandex.uz/maps?ll=${partnerData.location.lng},${partnerData.location.lat}&z=18`,
-      "_blank"
-    );
-  };
+  const heroImage =
+    pictures[0]?.pictureUrl || partnerData.pictureUrl || "/placeholder.svg";
 
-  const getCurrentDayWorkingHours = () => {
-    const days = [
-      "sunday",
-      "monday",
-      "tuesday",
-      "wednesday",
-      "thursday",
-      "friday",
-      "saturday",
-    ];
-    const currentDay = days[new Date().getDay()];
-
-    const todayHours = partnerData.workingHours.find(
-      (wh) => wh.weekDay === currentDay
-    );
-    if (todayHours) {
-      return `${t("partner.open-today")}: ${todayHours.openAt} - ${
-        todayHours.closeAt
-      }`;
+  const handleTabClick = (cat: string) => {
+    setActiveCategory(cat);
+    const el = sectionRefs.current[cat];
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    return "Hours not available";
   };
 
-  const getSocialLinks = () => {
-    if (!partnerData.urls) {
-      return {};
+  const handleBannerClick = (banner: Banner) => {
+    switch (banner.linkType) {
+      case "url":
+        window.open(banner.linkValue, "_blank", "noopener,noreferrer");
+        break;
+      case "partner":
+        router.push(`/shop/${banner.linkValue}`);
+        break;
+      case "drink": {
+        const menuEl = sectionRefs.current.__menu;
+        if (menuEl) menuEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        break;
+      }
     }
-    const links: { [key: string]: string } = {};
-    partnerData.urls.forEach((url) => {
-      links[url.urlType] = url.url;
-    });
-    return links;
   };
 
-  const formatWorkingHours = () => {
-    return partnerData.workingHours.map((wh) => ({
-      day: t(`weekdays.${wh.weekDay}`),
-      hours: `${wh.openAt} - ${wh.closeAt}`,
-    }));
+  const formatTodaysHours = () => {
+    const today = new Date()
+      .toLocaleString("en-US", { weekday: "long" })
+      .toLowerCase();
+    const todayHours = workingHours.find((h) => h.weekDay === today);
+    if (!todayHours) return t("partner.closed-today");
+    return `${todayHours.openAt} - ${todayHours.closeAt}`;
   };
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + allImages.length) % allImages.length
-    );
-  };
-
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
-  };
-
-  const socialLinks = getSocialLinks();
 
   return (
-    <div className="min-h-screen bg-background pt-[76px]">
-      {/* Image Banner/Slider */}
-      <div className="relative">
-        {/* Desktop Layout */}
-        <div className="hidden md:block">
-          <div className="relative h-[70vh]">
-            {/* Main Image */}
-            <div className="absolute inset-0">
-              <Image
-                src={allImages[currentImageIndex] || "/placeholder.svg"}
-                alt={`${partnerData.name} - Image ${currentImageIndex + 1}`}
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-black/20" />
-            </div>
-
-            {/* Content Overlay */}
-            <div className="relative z-10 h-full flex items-end top-1/4">
-              <div className="container px-4 pb-12 mx-auto">
-                <div className="flex gap-8 items-end">
-                  <div className="w-full">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
-                      <h2 className="text-4xl font-bold mb-4 text-gray-900">
-                        {partnerData.name}
-                      </h2>
-
-                      {/* Quick Info */}
-                      <div className="grid grid-cols-2 gap-6 mb-6">
-                        <div className="flex items-center gap-3">
-                          <div className="p-2 bg-blue-100 rounded-lg">
-                            <Clock className="h-5 w-5 text-blue-600" />
-                          </div>
-                          <div>
-                            <div className="text-sm text-gray-500">
-                              {t("weekdays.today")}
-                            </div>
-                            <div className="font-medium">
-                              {getCurrentDayWorkingHours().replace(
-                                "Open today: ",
-                                ""
-                              )}
-                            </div>
-                          </div>
-                        </div>
-
-                        {partnerData.phoneNumbers && (
-                          <div className="flex items-center gap-3">
-                            <div className="p-2 bg-green-100 rounded-lg">
-                              <Phone className="h-5 w-5 text-green-600" />
-                            </div>
-                            <div>
-                              <div className="text-sm text-gray-500">
-                                {t("partner.phone")}
-                              </div>
-                              <div className="font-medium">
-                                +{partnerData.phoneNumbers[0]?.phoneNumber}
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="flex gap-4">
-                        <Button className="text-white px-6" onClick={goToMap}>
-                          <MapPin className="h-4 w-4 mr-2" />
-                          {t("partner.get-directions")}
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            {allImages.length > 1 && (
-              <>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="absolute left-8 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 border-0 shadow-lg z-20"
-                  onClick={prevImage}
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="absolute right-8 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-900 border-0 shadow-lg z-20"
-                  onClick={nextImage}
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-              </>
-            )}
-          </div>
+    <div className="min-h-screen bg-[#f5f5f5] pt-[76px]">
+      <div className="max-w-lg mx-auto pb-28">
+        {/* Hero */}
+        <div className="relative">
+          <AspectRatio ratio={480 / 320}>
+            <Image
+              src={heroImage}
+              alt={partnerData.name}
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 512px) 100vw, 512px"
+            />
+          </AspectRatio>
+          <button
+            onClick={() => router.back()}
+            aria-label={t("partner.back")}
+            className="absolute top-4 left-4 p-2 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:bg-white transition-colors"
+          >
+            <ArrowLeft size={20} className="text-gray-700" />
+          </button>
         </div>
 
-        {/* Mobile Layout */}
-        <div className="md:hidden">
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image
-              src={allImages[currentImageIndex] || "/placeholder.svg"}
-              alt={`${partnerData.name} - Image ${currentImageIndex + 1}`}
-              fill
-              className="object-cover"
-              priority
-            />
+        <div className="pt-4 px-2 space-y-5">
+          <h1 className="text-2xl font-bold text-gray-900">
+            {partnerData.name}
+          </h1>
 
-            {/* Navigation arrows for multiple images */}
-            {allImages.length > 1 && (
-              <>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white border-0"
-                  onClick={prevImage}
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white border-0"
-                  onClick={nextImage}
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-
-                {/* Image counter */}
-                <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-                  {currentImageIndex + 1}/{allImages.length}
+          {/* Info card */}
+          <div className="bg-white rounded-sm shadow-sm py-4 px-3 space-y-3">
+            {workingHours.length > 0 && (
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Clock size={18} className="text-primary" />
                 </div>
-              </>
+                <div>
+                  <p className="text-xs text-gray-500">
+                    {t("partner.todays-hours")}
+                  </p>
+                  <p className="text-sm font-medium text-gray-900">
+                    {formatTodaysHours()}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {partnerData.location && (
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin size={18} className="text-primary" />
+                </div>
+                <a
+                  href={`https://yandex.uz/maps/?ll=${partnerData.location.lng},${partnerData.location.lat}&z=16&mode=whatshere&whatshere[point]=${partnerData.location.lng},${partnerData.location.lat}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-primary hover:underline"
+                >
+                  {t("partner.open-in-yandex")}
+                </a>
+              </div>
+            )}
+
+            {phoneNumbers.map((phone, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone size={18} className="text-primary" />
+                </div>
+                <a
+                  href={`tel:+${phone.phoneNumber}`}
+                  className="text-sm font-medium text-gray-900"
+                >
+                  +{phone.phoneNumber}
+                </a>
+              </div>
+            ))}
+
+            {urls.length > 0 && (
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  {urls[0].urlType === "instagram" ? (
+                    <Instagram size={18} className="text-primary" />
+                  ) : (
+                    <Globe size={18} className="text-primary" />
+                  )}
+                </div>
+                <div className="flex gap-3 flex-wrap">
+                  {urls.map((url, i) => (
+                    <a
+                      key={i}
+                      href={url.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-primary hover:underline"
+                    >
+                      {url.urlType === "instagram"
+                        ? t("partner.instagram")
+                        : t("partner.website")}
+                    </a>
+                  ))}
+                </div>
+              </div>
             )}
           </div>
 
-          {/* Mobile Thumbnail navigation */}
-          {allImages.length > 1 && (
-            <div className="p-4 bg-gray-50">
-              <div className="flex gap-2 overflow-x-auto">
-                {allImages.map((picture, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToImage(index)}
-                    className={`relative flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
-                      index === currentImageIndex
-                        ? "border-blue-500"
-                        : "border-transparent"
-                    }`}
+          {/* Photos */}
+          {pictures.length > 1 && (
+            <div>
+              <h2 className="text-lg font-semibold text-gray-900 mb-3 px-1">
+                {t("partner.photos")}
+              </h2>
+              <div className="flex gap-2 overflow-x-auto pb-2 px-1">
+                {pictures.map((pic, i) => (
+                  <div
+                    key={i}
+                    className="relative w-32 h-24 rounded-xl overflow-hidden flex-shrink-0"
                   >
                     <Image
-                      src={picture || "/placeholder.svg"}
-                      alt={`Thumbnail ${index + 1}`}
+                      src={pic.pictureUrl}
+                      alt={`${partnerData.name} ${i + 1}`}
                       fill
                       className="object-cover"
+                      sizes="128px"
                     />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Banners */}
+          {banners.length > 0 && (
+            <div className="px-1">
+              <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory">
+                {banners.map((banner) => (
+                  <button
+                    key={banner.id}
+                    onClick={() => handleBannerClick(banner)}
+                    className="relative flex-shrink-0 w-[85%] snap-center rounded-2xl overflow-hidden"
+                  >
+                    <AspectRatio ratio={16 / 9}>
+                      <Image
+                        src={banner.imageUrl}
+                        alt={banner.title ?? "banner"}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 512px) 85vw, 435px"
+                      />
+                    </AspectRatio>
                   </button>
                 ))}
               </div>
             </div>
           )}
+
+          {/* Menu */}
+          {allDrinks.length > 0 && (
+            <div
+              ref={(el) => {
+                sectionRefs.current.__menu = el;
+              }}
+            >
+              <h2 className="text-lg font-semibold text-gray-900 mb-3 px-1">
+                {t("partner.menu")}
+              </h2>
+
+              {hasRealCategories && (
+                <div className="flex gap-2 overflow-x-auto pb-3 mb-1 sticky top-[64px] z-[5] bg-[#f5f5f5] pt-4 px-2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
+                  {categoryNames.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => handleTabClick(cat)}
+                      className={cn(
+                        "flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                        activeCategory === cat
+                          ? "bg-primary text-white"
+                          : "bg-white text-gray-600 shadow-sm hover:bg-gray-50"
+                      )}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {hasRealCategories ? (
+                <div className="space-y-6 px-2">
+                  {rawCategories.map((cat) => (
+                    <div
+                      key={cat.id}
+                      ref={(el) => {
+                        sectionRefs.current[cat.name] = el;
+                      }}
+                      className="scroll-mt-[120px]"
+                    >
+                      <h3 className="text-lg font-bold text-gray-900 mb-3">
+                        {cat.name}
+                      </h3>
+                      <div className="grid grid-cols-2 gap-3">
+                        {cat.drinks.map((drink) => (
+                          <DrinkCard
+                            key={drink.id}
+                            drink={drink}
+                            currency={t("partner.uzs")}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-3 px-2">
+                  {allDrinks.map((drink) => (
+                    <DrinkCard
+                      key={drink.id}
+                      drink={drink}
+                      currency={t("partner.uzs")}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
+    </div>
+  );
+}
 
-      {/* Content */}
-      <div className="container mx-auto px-4 py-6 space-y-8 md:mt-32">
-        {/* Partner Name */}
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold">{partnerData.name}</h2>
-        </div>
-
-        {/* Working Hours */}
-        <Card>
-          <CardContent className="px-6">
-            <div className="flex items-center gap-3 mb-4">
-              <Clock className="h-5 w-5 text-muted-foreground" />
-              <span className="font-medium">{getCurrentDayWorkingHours()}</span>
-            </div>
-
-            <Button
-              variant="ghost"
-              className="p-0 h-auto font-normal text-blue-600 hover:text-blue-700"
-              onClick={() => setShowFullSchedule(!showFullSchedule)}
-            >
-              {showFullSchedule
-                ? t("partner.hide-schedule")
-                : t("partner.view-full-schedule")}
-            </Button>
-
-            {showFullSchedule && (
-              <div className="mt-4 space-y-2">
-                {formatWorkingHours().map((item, index) => (
-                  <div key={index} className="flex justify-between text-sm">
-                    <span>{item.day}</span>
-                    <span className="text-muted-foreground">{item.hours}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </CardContent>
-        </Card>
-
-        {/* Contact Information */}
-        <Card>
-          <CardContent className="px-6 space-y-4">
-            <div className="flex items-center gap-3">
-              <MapPin className="h-5 w-5 text-muted-foreground" />
-              <div className="flex-1">
-                <div className="font-medium">{t("partner.address")}</div>
-                <Button
-                  variant="link"
-                  className="p-0 h-auto font-normal text-blue-600 hover:text-blue-700"
-                  onClick={goToMap}
-                >
-                  {t("partner.get-directions")}
-                </Button>
-              </div>
-            </div>
-
-            {partnerData.phoneNumbers && (
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-muted-foreground" />
-                <a
-                  href={`tel:+${partnerData.phoneNumbers[0]?.phoneNumber}`}
-                  className="font-medium hover:text-blue-600 transition-colors"
-                >
-                  +{partnerData.phoneNumbers[0]?.phoneNumber}
-                </a>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-
-        {/* Social Links */}
-        {
-          Object.keys(socialLinks).length > 0 && (
-            <Card>
-          <CardContent className="px-6">
-            <h3 className="font-semibold mb-4">{t("partner.social-links")}</h3>
-            <div className="flex gap-4">
-              {socialLinks.web && (
-                <a
-                  href={socialLinks.web}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                >
-                  <Globe className="h-5 w-5" />
-                </a>
-              )}
-              {socialLinks.instagram && (
-                <a
-                  href={socialLinks.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-              )}
-              {socialLinks.facebook && (
-                <a
-                  href={socialLinks.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-          )
-        }
-
-        {/* Available Drinks */}
-        <div>
-          <h3 className="text-xl font-semibold mb-6">{t("partner.drinks")}</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {partnerData.drinks.map((drink) => (
-              <Card
-                key={drink.id}
-                className="overflow-hidden hover:shadow-xl transition-shadow py-0"
-              >
-                <div className="relative aspect-square">
-                  <Image
-                    src={drink.pictureUrl || "/placeholder.svg"}
-                    alt={drink.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <CardContent className="border-t border-red-800/10 px-2 py-2">
-                  <h4 className="font-medium text-lg mb-1">{drink.name}</h4>
-                </CardContent>
-              </Card>
-            ))}
+function DrinkCard({
+  drink,
+  currency,
+}: {
+  drink: ShopDrink;
+  currency: string;
+}) {
+  return (
+    <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+      <AspectRatio ratio={1}>
+        {drink.pictureUrl ? (
+          <Image
+            src={drink.pictureUrl}
+            alt={drink.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 512px) 50vw, 256px"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <Coffee size={32} className="text-gray-400" />
           </div>
+        )}
+      </AspectRatio>
+      <div className="p-2.5 flex items-end justify-between">
+        <div className="min-w-0">
+          <h3 className="font-medium text-sm text-gray-900 leading-tight truncate">
+            {drink.name}
+          </h3>
+          <p className="text-sm font-semibold text-primary mt-1">
+            {formatBalance(drink.productPrice)} {currency}
+          </p>
+        </div>
+        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+          <ChevronRight size={16} className="text-white" />
         </div>
       </div>
     </div>
