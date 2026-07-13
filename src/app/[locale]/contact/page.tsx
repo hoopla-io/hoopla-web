@@ -11,7 +11,7 @@ export async function generateMetadata() {
   return {
     title: t("contacts.title"),
     description: t("contacts.description"),
-    keywords: "Hoopla, coffee, subscription, premium, delivery",
+    keywords: "Hoopla, coffee, premium, delivery",
   };
 }
 
