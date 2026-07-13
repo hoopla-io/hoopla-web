@@ -65,7 +65,6 @@ export async function generateMetadata() {
     applicationName: "Hoopla",
     keywords: [
       "Coffee",
-      "Subscriptions",
       "Hoopla",
       "Ethical Coffee",
       "Premium Coffee",
@@ -85,7 +84,7 @@ export async function generateMetadata() {
     twitter: {
       card: "summary_large_image",
       site: "@Hoopla",
-      title: "Hoopla | Premium Coffee Subscriptions",
+      title: "Hoopla | Premium Coffee shops",
       description: t("hero.subtitle"),
       images: ["/images/og-image.jpg"],
     },
