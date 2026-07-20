@@ -1,0 +1,19 @@
+---
+import Base from "@/layouts/Base.astro";
+import { defaultLocale, useTranslations, isLocale, type Locale } from "@/i18n";
+
+const segment = Astro.url.pathname.split("/")[1];
+const locale: Locale = isLocale(segment) ? segment : defaultLocale;
+const t = useTranslations(locale);
+---
+
+<Base locale={locale} title={`Hoopla — ${t("notfound.title")}`} noChrome>
+  <main class="flex min-h-screen flex-col items-center justify-center px-5 text-center">
+    <p class="display outline-brand text-[8rem] font-bold leading-none sm:text-[12rem]">
+      404
+    </p>
+    <h1 class="display mt-4 text-4xl font-bold text-ink">{t("notfound.title")}</h1>
+    <p class="mt-4 max-w-md text-ink-soft">{t("notfound.description")}</p>
+    <a href={`/${locale}/`} class="btn-brand mt-8">{t("notfound.back")}</a>
+  </main>
+</Base>

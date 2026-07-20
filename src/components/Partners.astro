@@ -1,0 +1,64 @@
+---
+import { useTranslations, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const partners = [
+  { name: "Qahvachi", logo: "/images/qahvachi.jpg" },
+  { name: "Space Coffee", logo: "/images/place.png" },
+  { name: "Leaf Uz", logo: "/images/leaf-logo.png" },
+  { name: "Union Cafe", logo: "/images/union-cafe.png" },
+  { name: "Costa Coffee", logo: "/images/costa-coffee.png" },
+  { name: "Qahva", logo: "/images/qahva.png" },
+];
+---
+
+<section class="py-24" id="partners">
+  <div class="container mx-auto px-5">
+    <div class="mb-14 text-center">
+      <p class="eyebrow reveal text-brand">Hoopla</p>
+      <h2 class="display reveal mt-4 text-5xl font-bold text-ink sm:text-6xl">
+        {t("partners.title")}
+      </h2>
+    </div>
+  </div>
+
+  <div class="marquee" aria-label={t("partners.title")}>
+    <div class="marquee-track items-center gap-6 pr-6" style="--marquee-duration: 34s;">
+      {
+        [0, 1].map(() => (
+          <div class="flex items-center gap-6">
+            {partners.map((p, i) => (
+              <figure
+                class={`press-card flex h-40 w-40 shrink-0 flex-col items-center justify-center gap-3 p-5 ${i % 2 === 0 ? "-rotate-2" : "rotate-2"}`}
+              >
+                <img
+                  src={p.logo}
+                  alt={`${p.name} logo`}
+                  class="h-20 w-20 rounded-lg object-contain"
+                  loading="lazy"
+                  width="80"
+                  height="80"
+                />
+                <figcaption class="text-xs font-semibold text-ink-soft">
+                  {p.name}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="container mx-auto px-5">
+    <p class="reveal mx-auto mt-14 max-w-2xl text-center text-sm leading-relaxed text-ink-soft">
+      {t("partners.description")}
+    </p>
+  </div>
+</section>

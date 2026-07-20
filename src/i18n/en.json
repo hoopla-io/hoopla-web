@@ -1,0 +1,132 @@
+{
+  "title": "HOOPLA",
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "plans": "Plans",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Sweet Coffee for Your Daily Grind",
+    "subtitle": "Hoopla brings you closer to your daily coffee, connecting you with coffee shops through convenient comfortable ordering options.",
+    "download": "Download on the",
+    "text-1": "Order.",
+    "text-2": "Pick up.",
+    "text-3": "Enjoy."
+  },
+  "features": {
+    "title": "Why Choose Hoopla?",
+    "feature-1": {
+      "title": "Curated Coffee Selection",
+      "description": "Get access to a variety of the best quality coffee."
+    },
+    "feature-2": {
+      "title": "Easy to use",
+      "description": "Order coffee from your favorite coffee shops in one click!"
+    },
+    "feature-3": {
+      "title": "Flexible Subscriptions",
+      "description": "Adjust, pause, or cancel your plan anytime—your coffee, your way."
+    },
+    "feature-4": {
+      "title": "Discover New Coffee Spots",
+      "description": "Explore unique coffee experiences from our trusted partner locations."
+    }
+  },
+  "partners": {
+    "title": "Our Trusted Partners",
+    "description": "We're proud to work with our amazing partners who share our commitment to quality, sustainability, and fair trade practices in the coffee industry."
+  },
+  "our-story": {
+    "title": "Our Story",
+    "part-1": "Hoopla started with a simple mission: to make coffee more accessible, faster, and closer to you. We believe everyone deserves great coffee without waiting in line. That's why we built a simple way to order your favorite drink from anywhere and pick it up fresh, right on time.",
+    "part-2": "We partner with local coffee shops to bring their best flavors to your fingertips — supporting small businesses while giving coffee lovers a smoother, smarter experience.",
+    "part-3": "At Hoopla, coffee isn’t just a drink — it’s a moment that connects people, places, and passion. With every order, you’re joining a community that values quality, time, and good taste — one cup at a time."
+  },
+  "footer": {
+    "quick-links": {
+      "title": "Quick Links",
+      "privacy-policy": "Privacy Policy",
+      "terms-of-service": "Terms of use",
+      "help-center": "Contact Us"
+    },
+    "connect-with-us": {
+      "title": "Connect With Us",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "twitter": "Twitter"
+    }
+  },
+  "contacts": {
+    "title": "We'd Love to Hear From You!",
+    "description": "Whether you have a question, feedback, or just want to chat about coffee, feel free to reach out.",
+    "contact-us": "Contact Us",
+    "reach-us": "Reach Us Directly",
+    "name": "Name",
+    "email": "Email Address",
+    "message": "Message",
+    "send": "Send",
+    "success": "Thank you for reaching out!",
+    "success-subtitle": "We'll get back to you soon.",
+    "error": "Something went wrong. Please try again later.",
+    "location": "Tashkent city, Shaykhantakhur district, Ukchi street, 5"
+  },
+  "partner": {
+    "drinks": "Drinks",
+    "social-links": "Social Links",
+    "address": "Address",
+    "get-directions": "Get Directions",
+    "view-full-schedule": "View Full Schedule",
+    "hide-schedule": "Hide Schedule",
+    "open-today": "Open today",
+    "phone": "Phone",
+    "todays-hours": "Today's hours",
+    "closed-today": "Closed today",
+    "open-in-yandex": "Open in Yandex Maps",
+    "photos": "Photos",
+    "menu": "Menu",
+    "instagram": "Instagram",
+    "website": "Website",
+    "uzs": "UZS",
+    "back": "Back"
+  },
+  "weekdays": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "today": "Today"
+  },
+  "deeplink": {
+    "open-in-app": "Open in app",
+    "title": "Continue in the app"
+  },
+  "cashback": {
+    "word": "Cashback",
+    "title": "Cashback on every cup",
+    "subtitle": "Order through Hoopla, pick up your coffee — a slice of every order comes back to your balance.",
+    "step-1": {
+      "title": "Order",
+      "description": "Pick a partner coffee shop and order your drink in the app."
+    },
+    "step-2": {
+      "title": "Pick up",
+      "description": "Skip the queue — your coffee is ready when you arrive."
+    },
+    "step-3": {
+      "title": "Earn",
+      "description": "Cashback lands on your balance and pays for your next orders."
+    },
+    "note": "Cashback terms are set by each partner and shown in the app."
+  },
+  "notfound": {
+    "title": "Page not found",
+    "description": "The page you're looking for has moved or never existed.",
+    "back": "Back to home"
+  },
+  "footer-rights": "All rights reserved."
+}

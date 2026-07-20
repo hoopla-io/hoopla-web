@@ -1,37 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hoopla Web
 
-## Getting Started
+Marketing site + partner pages for [Hoopla](https://hoopla.uz) — order coffee, pick it up, earn cashback. Built with [Astro](https://astro.build), trilingual (uz / ru / en).
 
-First, run the development server:
+## Stack
+
+- **Astro 5** with the Node adapter (standalone) — landing, contact, and legal pages are prerendered static HTML; `/[locale]/shop/[partnerId]` is server-rendered per request with live data from `api.hoopla.uz`.
+- **Tailwind CSS 4** (`@tailwindcss/vite`) plus a custom design system in `src/styles/global.css`.
+- Vanilla `<script>` islands only — no client framework.
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:4321
+npm run build      # outputs dist/ (static client + Node server)
+npm start          # node ./dist/server/entry.mjs on :3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env`. Variables are read at **runtime** via `process.env` (do not switch them to `import.meta.env` — Vite would inline them at build time):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+| --- | --- |
+| `GMAIL_USER`, `GMAIL_APP_PASSWORD` | contact form sender (`POST /api/send-email`) |
+| `CONTACT_RECIPIENT` | contact form recipient (defaults to `GMAIL_USER`) |
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+`docker compose up -d --build` (what the Jenkins pipeline runs on the VPS). The compose file injects `.env` via `env_file`, and the image serves on port 3000.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# hoopla
+```
+src/
+  pages/[locale]/          index, contact, terms-of-use, privacy-policy
+  pages/[locale]/shop/     [partnerId].astro  (SSR, live API)
+  pages/api/               send-email.ts
+  components/              Header, Hero, Features, Cashback, Partners, OurStory, Footer, DeepLinkSheet
+  i18n/                    uz.json, ru.json, en.json + helpers
+  data/                    terms.ts, privacy.ts (legal HTML per locale)
+  styles/global.css        design tokens, fonts, animations
+```

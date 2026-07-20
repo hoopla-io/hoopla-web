@@ -1,6 +1,9 @@
 node_modules
-.next/cache
+dist
+.astro
+.git
+.env
+.env.*
 *.log
-*.env.local
 Dockerfile
 .dockerignore
