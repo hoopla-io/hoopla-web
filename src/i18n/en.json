@@ -56,12 +56,6 @@
       "instagram": "Instagram",
       "facebook": "Facebook",
       "twitter": "Twitter"
-    },
-    "newsletter": {
-      "title": "Newsletter",
-      "description": "Subscribe to our newsletter to stay updated with the latest coffee news and exclusive offers.",
-      "placeholder": "Your email address",
-      "button": "Subscribe"
     }
   },
   "contacts": {
@@ -77,16 +71,6 @@
     "success-subtitle": "We'll get back to you soon.",
     "error": "Something went wrong. Please try again later.",
     "location": "Tashkent city, Shaykhantakhur district, Ukchi street, 5"
-  },
-  "newsletter": {
-    "title": "Stay Updated with Hoopla",
-    "description": "Subscribe to our newsletter for the latest coffee news and exclusive offers.",
-    "placeholder": "Your email address",
-    "button": "Subscribe",
-    "time": "We'll respond within 24-48 hours.",
-    "success": "Thank you for subscribing!",
-    "success-subtitle": "You'll get updates straight to your inbox.",
-    "error": "Something went wrong. Please try again later."
   },
   "partner": {
     "drinks": "Drinks",

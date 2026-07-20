@@ -79,26 +79,25 @@ const socials = [
       </div>
 
       <div>
-        <h3 class="eyebrow text-honey">{t("footer.newsletter.title")}</h3>
-        <p class="mt-5 text-sm text-paper/80">
-          {t("footer.newsletter.description")}
-        </p>
-        <form class="newsletter-form mt-4 flex gap-2" data-error={t("newsletter.error")}>
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder={t("footer.newsletter.placeholder")}
-            class="w-full rounded-lg border-2 border-paper/30 bg-brand-deep px-4 py-2.5 text-sm text-paper placeholder:text-paper/50 focus:border-honey focus:outline-none"
-          />
-          <button
-            type="submit"
-            class="shrink-0 rounded-lg bg-honey px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-paper"
-          >
-            {t("footer.newsletter.button")}
-          </button>
-        </form>
-        <p class="newsletter-msg mt-3 hidden text-sm text-honey" data-success={t("newsletter.success")}></p>
+        <h3 class="eyebrow text-honey">{t("contacts.reach-us")}</h3>
+        <address class="mt-5 space-y-3 text-sm not-italic text-paper/80">
+          <p>{t("contacts.location")}</p>
+          <p>
+            <a href="tel:+998500772274" class="font-semibold text-paper hover:text-honey">
+              +998 50 077 22 74
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://t.me/hoopla_support"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold text-paper hover:text-honey"
+            >
+              t.me/hoopla_support
+            </a>
+          </p>
+        </address>
       </div>
     </div>
 
@@ -115,30 +114,3 @@ const socials = [
     hoopla
   </p>
 </footer>
-
-<script>
-  document.querySelectorAll<HTMLFormElement>(".newsletter-form").forEach((form) => {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const input = form.querySelector<HTMLInputElement>("input[name=email]");
-      const msg = form.parentElement?.querySelector<HTMLElement>(".newsletter-msg");
-      if (!input || !msg) return;
-      try {
-        const res = await fetch("/api/newsletter", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: input.value }),
-        });
-        const body = await res.json();
-        msg.textContent = res.ok
-          ? msg.dataset.success ?? ""
-          : body.error ?? form.dataset.error ?? "";
-        msg.classList.remove("hidden");
-        if (res.ok) input.value = "";
-      } catch {
-        msg.textContent = form.dataset.error ?? "";
-        msg.classList.remove("hidden");
-      }
-    });
-  });
-</script>
