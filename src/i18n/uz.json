@@ -56,12 +56,6 @@
       "instagram": "Instagram",
       "facebook": "Facebook",
       "twitter": "Twitter"
-    },
-    "newsletter": {
-      "title": "Axborotnoma",
-      "description": "Eng so'nggi kofe yangiliklari va eksklyuziv takliflardan xabardor bo'lish uchun axborot byulletenimizga obuna bo'ling.",
-      "placeholder": "Sizning elektron pochta manzilingiz",
-      "button": "Obuna"
     }
   },
   "contacts": {
@@ -77,16 +71,6 @@
     "success-subtitle": "Biz siz bilan bog'lanamiz.",
     "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
     "location": "Toshkent shahri, Shayxontohur tumani, O'qchi ko'chasi, 5-uy"
-  },
-  "newsletter": {
-    "title": "Axborot byulleteni",
-    "description": "Eng so'nggi kofe yangiliklari va eksklyuziv takliflardan xabardor bo'lish uchun axborot byulletenimizga obuna bo'ling.",
-    "placeholder": "Sizning elektron pochta manzilingiz",
-    "button": "Obuna",
-    "time": "24-48 soat ichida javob beramiz.",
-    "success": "Sizning elektron pochta manzilingiz muvaffaqiyatli obuna qilindi.",
-    "success-subtitle": "Eng so'nggi kofe yangiliklari va eksklyuziv takliflardan xabardor bo'ling.",
-    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
   },
   "partner": {
     "drinks": "Ichimliklar",

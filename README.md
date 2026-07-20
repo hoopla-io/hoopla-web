@@ -23,7 +23,6 @@ Copy `.env.example` to `.env`. Variables are read at **runtime** via `process.en
 
 | Variable | Purpose |
 | --- | --- |
-| `SUPABASE_URL`, `SUPABASE_ANON_KEY` | newsletter signups (`POST /api/newsletter`) |
 | `GMAIL_USER`, `GMAIL_APP_PASSWORD` | contact form sender (`POST /api/send-email`) |
 | `CONTACT_RECIPIENT` | contact form recipient (defaults to `GMAIL_USER`) |
 
@@ -37,7 +36,7 @@ Copy `.env.example` to `.env`. Variables are read at **runtime** via `process.en
 src/
   pages/[locale]/          index, contact, terms-of-use, privacy-policy
   pages/[locale]/shop/     [partnerId].astro  (SSR, live API)
-  pages/api/               newsletter.ts, send-email.ts
+  pages/api/               send-email.ts
   components/              Header, Hero, Features, Cashback, Partners, OurStory, Footer, DeepLinkSheet
   i18n/                    uz.json, ru.json, en.json + helpers
   data/                    terms.ts, privacy.ts (legal HTML per locale)
