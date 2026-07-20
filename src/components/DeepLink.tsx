@@ -16,6 +16,8 @@ import HooplaIcon from "@/public/images/app/hoopla.webp";
 import { usePathname } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 
+const EXCLUDED_ROUTES = ["/privacy-policy", "/terms-of-use", "/contact"];
+
 export default function DeepLink() {
   const pathname = usePathname();
   const locale = useLocale();
@@ -24,10 +26,15 @@ export default function DeepLink() {
   const t = useTranslations();
 
   useEffect(() => {
-    const shouldOpen = pathname.includes("/shop");
+    const isExcluded = EXCLUDED_ROUTES.some((route) =>
+      pathname.startsWith(route)
+    );
+    const shouldOpen = pathname.includes("/shop") && !isExcluded;
 
     if (isMobile && (isAndroid || isIOS) && shouldOpen) {
       setOpen(true);
+    } else {
+      setOpen(false);
     }
   }, [pathname]);
 
