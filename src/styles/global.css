@@ -1,0 +1,379 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Hoopla — editorial café poster design system
+   Cream paper · espresso ink · burgundy brand · honey accent
+--------------------------------------------------------------------------- */
+
+@theme {
+  --color-paper: #f6eddd;
+  --color-paper-deep: #efe2c9;
+  --color-foam: #fdf9f0;
+  --color-ink: #221510;
+  --color-ink-soft: #4c3a31;
+  --color-brand: #892235;
+  --color-brand-deep: #5e1524;
+  --color-honey: #d98e2b;
+  --color-success: #4a934a;
+
+  --font-display: "Eugusto", "Georgia", serif;
+  --font-sans: "Sofia Pro", "Avenir Next", "Helvetica Neue", sans-serif;
+}
+
+/* ------------------------------- Fonts ---------------------------------- */
+
+@font-face {
+  font-family: "Eugusto";
+  src: url("/fonts/eugusto-eugusto-regular-400.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Eugusto";
+  src: url("/fonts/eugusto-eugusto-bold-700.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Eugusto";
+  src: url("/fonts/eugusto-eugusto-light-200.ttf") format("truetype");
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia-Pro-Regular-Az.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia-Pro-Medium-Az.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia-Pro-Semi-Bold Az.otf") format("opentype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia-Pro-Bold-Az.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/Sofia-Pro-Light-Az.otf") format("opentype");
+  font-weight: 300;
+  font-display: swap;
+}
+
+/* ------------------------------- Base ----------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: var(--color-paper);
+}
+
+/* Paper grain over everything, very quiet */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --------------------------- Typography --------------------------------- */
+
+@utility display {
+  font-family: var(--font-display);
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+}
+
+.outline-ink {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-ink);
+}
+.outline-brand {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-brand);
+}
+@media (max-width: 640px) {
+  .outline-ink { -webkit-text-stroke-width: 1.3px; }
+  .outline-brand { -webkit-text-stroke-width: 1.3px; }
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------ Motion ----------------------------------- */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise {
+  opacity: 0;
+  animation: rise 0.8s cubic-bezier(0.2, 0.65, 0.25, 1) forwards;
+}
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.18s; }
+.rise-3 { animation-delay: 0.31s; }
+.rise-4 { animation-delay: 0.48s; }
+.rise-5 { animation-delay: 0.62s; }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(6deg); }
+  50% { transform: translateY(-16px) rotate(6deg); }
+}
+.bob { animation: bob 5s ease-in-out infinite; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow { animation: spin-slow 22s linear infinite; }
+
+/* Scroll reveal (activated by tiny IntersectionObserver in Base layout).
+   Gated behind html.js so content stays visible without JavaScript. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.65, 0.25, 1),
+    transform 0.7s cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .reveal { animation: none; opacity: 1; transform: none; transition: none; }
+  .bob, .marquee-track, .spin-slow { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------------------------- Components --------------------------------- */
+
+/* Sticker-style buttons (store badges) */
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--color-ink);
+  color: var(--color-foam);
+  border-radius: 0.9rem;
+  padding: 0.8rem 1.4rem;
+  border: 2px solid var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-brand);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sticker:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--color-brand);
+}
+.sticker:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--color-brand);
+}
+
+/* Letterpress card: paper card with ink border + hard offset shadow */
+.press-card {
+  background: var(--color-foam);
+  border: 2px solid var(--color-ink);
+  border-radius: 1.25rem;
+  box-shadow: 6px 6px 0 rgb(34 21 16 / 0.9);
+}
+
+/* Ticket stub with perforated left edge */
+.ticket {
+  position: relative;
+  background: var(--color-foam);
+  border: 2px solid var(--color-ink);
+  border-radius: 1.1rem;
+  box-shadow: 5px 5px 0 rgb(34 21 16 / 0.16);
+}
+.ticket::before {
+  content: "";
+  position: absolute;
+  left: 3.2rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  border-left: 2px dashed rgb(34 21 16 / 0.3);
+}
+
+/* Coffee ring decoration */
+.coffee-ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 10px solid rgb(137 34 53 / 0.12);
+  filter: blur(0.4px);
+  pointer-events: none;
+}
+.coffee-ring::after {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 9999px;
+  border: 2px solid rgb(137 34 53 / 0.1);
+}
+
+/* Ticker strip */
+.ticker {
+  background: var(--color-brand);
+  color: var(--color-paper);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-item {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.6vw, 1.7rem);
+  padding: 0.55rem 0;
+}
+.ticker-item .sep {
+  margin: 0 1.4rem;
+  color: var(--color-honey);
+}
+
+/* Prose for legal pages */
+.legal-prose {
+  max-width: 46rem;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+.legal-prose h2 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-size: 1.35rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+.legal-prose p { margin-bottom: 0.55rem; }
+.legal-prose ul { margin: 0.5rem 0 0.8rem; }
+.legal-prose a { color: var(--color-brand); text-decoration: underline; }
+.legal-prose table td { vertical-align: top; }
+.legal-prose .overflow-x-auto { margin-top: 0.6rem; }
+
+/* Forms */
+.field {
+  width: 100%;
+  background: var(--color-foam);
+  border: 2px solid var(--color-ink);
+  border-radius: 0.8rem;
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  color: var(--color-ink);
+  outline: none;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.field::placeholder { color: rgb(76 58 49 / 0.55); }
+.field:focus {
+  box-shadow: 4px 4px 0 rgb(137 34 53 / 0.85);
+  transform: translate(-1px, -1px);
+}
+
+.btn-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-brand);
+  color: var(--color-foam);
+  font-weight: 600;
+  border: 2px solid var(--color-ink);
+  border-radius: 0.8rem;
+  padding: 0.85rem 1.8rem;
+  box-shadow: 4px 4px 0 var(--color-ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  cursor: pointer;
+}
+.btn-brand:hover {
+  background: var(--color-brand-deep);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+.btn-brand:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--color-ink);
+}
+.btn-brand:disabled { opacity: 0.6; pointer-events: none; }
+
+/* Header state */
+.site-header {
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+.site-header.is-scrolled {
+  background: rgb(246 237 221 / 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgb(34 21 16 / 0.12);
+}
+
+/* Arch image frame (photo with full-round top) */
+.arch {
+  border-radius: 999px 999px 1.2rem 1.2rem;
+  border: 2px solid var(--color-ink);
+  overflow: hidden;
+}
+
+/* Bottom sheet (deep link) */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgb(34 21 16 / 0.55);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.sheet-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 95;
+  margin: 0 auto;
+  max-width: 28rem;
+  background: var(--color-foam);
+  border: 2px solid var(--color-ink);
+  border-bottom: 0;
+  border-radius: 1.4rem 1.4rem 0 0;
+  transform: translateY(105%);
+  transition: transform 0.3s cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+.deeplink-open .sheet-backdrop { opacity: 1; }
+.deeplink-open .sheet-panel { transform: translateY(0); }

@@ -1,0 +1,147 @@
+---
+import {
+  useTranslations,
+  localePath,
+  switchLocalePath,
+  locales,
+  type Locale,
+} from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { name: t("nav.home"), href: localePath(locale, "/") },
+  { name: t("nav.about"), href: `${localePath(locale, "/")}#our-story` },
+  { name: t("nav.partners"), href: `${localePath(locale, "/")}#partners` },
+  { name: t("nav.contact"), href: localePath(locale, "/contact") },
+];
+---
+
+<header class="site-header fixed inset-x-0 top-0 z-50 py-4" id="site-header">
+  <div class="container mx-auto flex items-center justify-between px-5">
+    <a
+      href={localePath(locale, "/")}
+      class="display text-3xl font-bold text-brand lowercase leading-none"
+    >
+      hoopla<span class="text-honey">.</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 lg:flex">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium tracking-wide text-ink transition-colors hover:text-brand"
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="hidden items-center gap-1 lg:flex">
+      {
+        locales.map((l) => (
+          <a
+            href={switchLocalePath(pathname, l)}
+            class:list={[
+              "rounded-full border-2 px-3 py-1 text-xs font-semibold uppercase transition-colors",
+              l === locale
+                ? "border-ink bg-ink text-foam"
+                : "border-transparent text-ink-soft hover:border-ink",
+            ]}
+          >
+            {l}
+          </a>
+        ))
+      }
+    </div>
+
+    <button
+      id="menu-open"
+      class="lg:hidden text-ink"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path d="M3 7h18M3 12h18M3 17h12"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu: full-screen burgundy poster -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-[70] hidden flex-col bg-brand text-paper"
+>
+  <div class="flex items-center justify-between px-5 py-5">
+    <span class="display text-3xl font-bold lowercase">hoopla<span class="text-honey">.</span></span>
+    <button id="menu-close" aria-label="Close menu" class="text-paper">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path d="M5 5l14 14M19 5L5 19"></path>
+      </svg>
+    </button>
+  </div>
+  <nav class="flex flex-1 flex-col justify-center gap-2 px-8">
+    {
+      navItems.map((item, i) => (
+        <a
+          href={item.href}
+          class="menu-link display text-5xl font-bold leading-tight transition-transform hover:translate-x-3 hover:text-honey"
+          style={`transition-delay:${i * 40}ms`}
+        >
+          {item.name}
+        </a>
+      ))
+    }
+  </nav>
+  <div class="flex gap-3 px-8 pb-12">
+    {
+      locales.map((l) => (
+        <a
+          href={switchLocalePath(pathname, l)}
+          class:list={[
+            "rounded-full border-2 px-4 py-1.5 text-sm font-semibold uppercase",
+            l === locale
+              ? "border-paper bg-paper text-brand"
+              : "border-paper/40 text-paper",
+          ]}
+        >
+          {l}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const header = document.getElementById("site-header");
+  const onScroll = () => {
+    header?.classList.toggle("is-scrolled", window.scrollY > 10);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const menu = document.getElementById("mobile-menu");
+  const openBtn = document.getElementById("menu-open");
+  const closeBtn = document.getElementById("menu-close");
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle("hidden", !open);
+    menu?.classList.toggle("flex", open);
+    openBtn?.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
+  };
+  openBtn?.addEventListener("click", () => setOpen(true));
+  closeBtn?.addEventListener("click", () => setOpen(false));
+  menu?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => setOpen(false))
+  );
+</script>

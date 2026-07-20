@@ -1,0 +1,64 @@
+---
+import { useTranslations, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const icons = {
+  cup: "M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8zM6 2v2M10 2v2M14 2v2",
+  tap: "M12 2v6m0 0a4 4 0 0 1 4 4v6a4 4 0 0 1-8 0v-6a4 4 0 0 1 4-4zM8 14h8",
+  pin: "M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0zM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
+};
+
+const features = [
+  { n: "01", icon: icons.cup, title: t("features.feature-1.title"), description: t("features.feature-1.description") },
+  { n: "02", icon: icons.tap, title: t("features.feature-2.title"), description: t("features.feature-2.description") },
+  { n: "03", icon: icons.pin, title: t("features.feature-4.title"), description: t("features.feature-4.description") },
+];
+---
+
+<section class="bg-brand py-24 text-paper">
+  <div class="container mx-auto px-5">
+    <div class="mb-16 flex flex-wrap items-end justify-between gap-6">
+      <h2 class="display reveal max-w-xl text-5xl font-bold sm:text-6xl">
+        {t("features.title")}
+      </h2>
+      <span class="eyebrow reveal reveal-delay-1 text-honey">Hoopla · {t("cashback.word")}</span>
+    </div>
+
+    <div class="grid gap-px overflow-hidden rounded-2xl border-2 border-paper/25 bg-paper/25 md:grid-cols-3">
+      {
+        features.map((f, i) => (
+          <article
+            class={`feature-cell reveal reveal-delay-${i + 1} group bg-brand p-9 transition-colors duration-300 hover:bg-brand-deep`}
+          >
+            <div class="flex items-start justify-between">
+              <span class="display text-6xl font-bold text-transparent transition-colors duration-300 group-hover:text-honey" style="-webkit-text-stroke: 1.5px var(--color-paper);">
+                {f.n}
+              </span>
+              <svg
+                width="34"
+                height="34"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-2 text-honey"
+              >
+                <path d={f.icon} />
+              </svg>
+            </div>
+            <h3 class="mt-10 text-xl font-semibold">{f.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-paper/75">{f.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

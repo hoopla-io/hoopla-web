@@ -1,0 +1,130 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getStaticLocalePaths, useTranslations, type Locale } from "@/i18n";
+
+export function getStaticPaths() {
+  return getStaticLocalePaths();
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale);
+
+// Hoopla office: Tashkent, Shaykhantakhur district, Ukchi street 5
+const office = { lat: 41.314472, lng: 69.267139 };
+const bbox = [office.lng - 0.008, office.lat - 0.004, office.lng + 0.008, office.lat + 0.004].join("%2C");
+---
+
+<Base
+  locale={locale}
+  title={`Hoopla — ${t("nav.contact")}`}
+  description={t("contacts.description")}
+  path="/contact"
+>
+  <main class="relative overflow-hidden pt-32 pb-24">
+    <div class="coffee-ring h-56 w-56 -top-10 left-[6%]"></div>
+
+    <div class="container mx-auto px-5">
+      <div class="max-w-3xl">
+        <p class="eyebrow rise rise-1 text-brand">{t("nav.contact")}</p>
+        <h1 class="display rise rise-2 mt-4 text-5xl font-bold text-ink sm:text-7xl">
+          {t("contacts.title")}
+        </h1>
+        <p class="rise rise-3 mt-6 text-lg leading-relaxed text-ink-soft">
+          {t("contacts.description")}
+        </p>
+      </div>
+
+      <div class="mt-16 grid gap-10 lg:grid-cols-2">
+        <!-- Letter-style form -->
+        <form id="contact-form" class="press-card rise rise-4 space-y-5 p-8">
+          <div>
+            <label for="cf-name" class="eyebrow mb-2 block text-ink-soft">{t("contacts.name")}</label>
+            <input id="cf-name" name="name" type="text" required class="field" />
+          </div>
+          <div>
+            <label for="cf-email" class="eyebrow mb-2 block text-ink-soft">{t("contacts.email")}</label>
+            <input id="cf-email" name="email" type="email" required class="field" />
+          </div>
+          <div>
+            <label for="cf-message" class="eyebrow mb-2 block text-ink-soft">{t("contacts.message")}</label>
+            <textarea id="cf-message" name="message" rows="6" required class="field resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-brand w-full" data-label={t("contacts.send")}>
+            {t("contacts.send")}
+          </button>
+          <p
+            id="contact-status"
+            class="hidden text-sm font-medium"
+            data-success={t("contacts.success")}
+            data-error={t("contacts.error")}
+          >
+          </p>
+        </form>
+
+        <div class="space-y-8">
+          <div class="rise rise-5">
+            <h2 class="eyebrow text-brand">{t("contacts.reach-us")}</h2>
+            <address class="mt-4 space-y-3 text-lg not-italic text-ink">
+              <p>{t("contacts.location")}</p>
+              <p>
+                <a href="tel:+998500772274" class="font-semibold text-brand hover:underline">
+                  +998 50 077 22 74
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://t.me/hoopla_support"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-brand hover:underline"
+                >
+                  t.me/hoopla_support
+                </a>
+              </p>
+            </address>
+          </div>
+
+          <div class="arch rise rise-5 h-80">
+            <iframe
+              title={t("contacts.location")}
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${office.lat}%2C${office.lng}`}
+              class="h-full w-full"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const status = document.getElementById("contact-status");
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!status) return;
+    const button = form.querySelector<HTMLButtonElement>("button[type=submit]");
+    if (button) button.disabled = true;
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      status.textContent = res.ok
+        ? status.dataset.success ?? ""
+        : status.dataset.error ?? "";
+      status.className = res.ok
+        ? "text-sm font-medium text-success"
+        : "text-sm font-medium text-brand";
+      if (res.ok) form.reset();
+    } catch {
+      status.textContent = status.dataset.error ?? "";
+      status.className = "text-sm font-medium text-brand";
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+</script>

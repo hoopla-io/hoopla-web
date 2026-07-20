@@ -1,0 +1,148 @@
+{
+  "title": "Hoopla",
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "plans": "Obunalar",
+    "partners": "Hamkorlar",
+    "contact": "Bog'lanish"
+  },
+  "hero": {
+    "title": "Buyurtma ber. Olib ket. Bahra ol.",
+    "subtitle": "Hoopla sizni kundalik qahvangizga yaqinlashtiradi, qulay ilova orqali sizni qahvaxonalar bilan bog‘laydi",
+    "download": "Yuklab olish",
+    "text-1": "Buyurtma ber.",
+    "text-2": "Olib ket.",
+    "text-3": "Bahra ol."
+  },
+  "features": {
+    "title": "Nega Hooplani tanlash kerak?",
+    "feature-1": {
+      "title": "Saralangan qahva",
+      "description": "Eng sifatli kofening xilma-xilligidan bahramand bo‘ling."
+    },
+    "feature-2": {
+      "title": "Foydalanish uchun qulay",
+      "description": "Sevimli qahvaxonalaringizdan bir klikda qahva buyurtma qiling!"
+    },
+    "feature-3": {
+      "title": "Moslashuvchan obunalar",
+      "description": "Obunani istalgan paytda sozlang, to‘xtating yoki bekor qiling."
+    },
+    "feature-4": {
+      "title": "Yangi qahva joylarini kashf eting",
+      "description": "Bizning ishonchli hamkorlarimizdan noyob qahva tajribalarini o'rganing."
+    }
+  },
+  "partners": {
+    "title": "Bizning hamkorlarimiz",
+    "description": "Biz qahva sanoatida sifat, barqarorlik va adolatli savdo amaliyotiga sodiqligimizni baham ko'radigan ajoyib hamkorlar bilan ishlashdan faxrlanamiz."
+  },
+  "our-story": {
+    "title": "Bizning hikoyamiz",
+    "part-1": "Hoopla bitta oddiy maqsad bilan boshlandi — qahvani yanada qulay, tez va yaqin qilish. Biz har bir inson navbatsiz, kutmasdan ajoyib qahvadan bahramand bo‘lishi kerak, deb hisoblaymiz. Shuning uchun sevimli ichimlikni istalgan joydan buyurtma berib, yangi holatda o‘z vaqtida olib ketish imkonini yaratdik.",
+    "part-2": "Biz mahalliy qahvaxonalar bilan hamkorlik qilib, ularning eng yaxshi ta’mlarini sizga yaqinlashtiramiz — kichik bizneslarni qo‘llab-quvvatlab, qahvani olish jarayonini osonlashtiramiz.",
+    "part-3": "Hoopla uchun qahva — bu shunchaki ichimlik emas, u odamlarni, joylarni va hikoyalarni bog‘laydigan lahza. Har bir buyurtma bilan siz sifat, vaqt va didni qadrlaydigan jamoaning bir qismiga aylanasiz — har bir piyolada."
+  },
+  "footer": {
+    "quick-links": {
+      "title": "Tezkor havolalar",
+      "privacy-policy": "Maxfiylik siyosati",
+      "terms-of-service": "Xizmat ko'rsatish shartlari",
+      "help-center": "Biz bilan bog'lanish"
+    },
+    "connect-with-us": {
+      "title": "Biz bilan bog'laning",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "twitter": "Twitter"
+    },
+    "newsletter": {
+      "title": "Axborotnoma",
+      "description": "Eng so'nggi kofe yangiliklari va eksklyuziv takliflardan xabardor bo'lish uchun axborot byulletenimizga obuna bo'ling.",
+      "placeholder": "Sizning elektron pochta manzilingiz",
+      "button": "Obuna"
+    }
+  },
+  "contacts": {
+    "title": "Biz bilan bog'lanish uchun",
+    "description": "Siz qahvani qulayroq qilishni istaysiz, biz siz bilan bog'lanamiz.",
+    "contact-us": "Biz bilan bog'lanish",
+    "reach-us": "Biz bilan bog'lanish",
+    "name": "Ismingiz",
+    "email": "Elektron pochta",
+    "message": "Murojaat yozing",
+    "send": "Yuborish",
+    "success": "Sizning murojaatingiz muvaffaqiyatli yuborildi.",
+    "success-subtitle": "Biz siz bilan bog'lanamiz.",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+    "location": "Toshkent shahri, Shayxontohur tumani, O'qchi ko'chasi, 5-uy"
+  },
+  "newsletter": {
+    "title": "Axborot byulleteni",
+    "description": "Eng so'nggi kofe yangiliklari va eksklyuziv takliflardan xabardor bo'lish uchun axborot byulletenimizga obuna bo'ling.",
+    "placeholder": "Sizning elektron pochta manzilingiz",
+    "button": "Obuna",
+    "time": "24-48 soat ichida javob beramiz.",
+    "success": "Sizning elektron pochta manzilingiz muvaffaqiyatli obuna qilindi.",
+    "success-subtitle": "Eng so'nggi kofe yangiliklari va eksklyuziv takliflardan xabardor bo'ling.",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
+  },
+  "partner": {
+    "drinks": "Ichimliklar",
+    "social-links": "Ijtimoiy tarmoqlar",
+    "address": "Manzil",
+    "get-directions": "Marshrut",
+    "view-full-schedule": "To‘liq jadval",
+    "hide-schedule": "Jadvalni yopish",
+    "open-today": "Bugun ochiq",
+    "phone": "Telefon raqami",
+    "todays-hours": "Bugungi ish vaqti",
+    "closed-today": "Bugun yopiq",
+    "open-in-yandex": "Yandex Xaritada ochish",
+    "photos": "Suratlar",
+    "menu": "Menyu",
+    "instagram": "Instagram",
+    "website": "Sayt",
+    "uzs": "UZS",
+    "back": "Orqaga"
+  },
+  "weekdays": {
+    "monday": "Dushanba",
+    "tuesday": "Seshanba",
+    "wednesday": "Chorshanba",
+    "thursday": "Payshanba",
+    "friday": "Juma",
+    "saturday": "Shanba",
+    "sunday": "Yakshanba",
+    "today": "Bugun"
+  },
+  "deeplink": {
+    "open-in-app": "Ilovada ochish",
+    "title": "Ilovada davom etish"
+  },
+  "cashback": {
+    "word": "Keshbek",
+    "title": "Har bir piyoladan keshbek",
+    "subtitle": "Hoopla orqali buyurtma bering, qahvangizni olib keting — har bir buyurtmaning bir qismi balansingizga qaytadi.",
+    "step-1": {
+      "title": "Buyurtma bering",
+      "description": "Hamkor qahvaxonani tanlang va ichimlikni ilovada buyurtma qiling."
+    },
+    "step-2": {
+      "title": "Olib keting",
+      "description": "Navbatsiz — yetib borganingizda qahvangiz tayyor bo'ladi."
+    },
+    "step-3": {
+      "title": "Keshbek yig'ing",
+      "description": "Keshbek balansingizga tushadi va keyingi buyurtmalaringiz uchun ishlaydi."
+    },
+    "note": "Keshbek shartlari har bir hamkor tomonidan belgilanadi va ilovada ko'rsatiladi."
+  },
+  "notfound": {
+    "title": "Sahifa topilmadi",
+    "description": "Siz izlagan sahifa ko'chirilgan yoki mavjud emas.",
+    "back": "Bosh sahifaga qaytish"
+  },
+  "footer-rights": "Barcha huquqlar himoyalangan."
+}

@@ -1,0 +1,43 @@
+---
+import { useTranslations, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="bg-ink py-24 text-paper" id="our-story">
+  <div class="container mx-auto px-5">
+    <div class="grid items-start gap-14 lg:grid-cols-[1fr_1.3fr]">
+      <div class="lg:sticky lg:top-28">
+        <p class="eyebrow reveal text-honey">Hoopla</p>
+        <h2 class="display reveal mt-4 text-5xl font-bold sm:text-6xl">
+          {t("our-story.title")}
+        </h2>
+        <div class="arch reveal reveal-delay-1 mt-10 max-w-sm">
+          <img
+            src="/images/coffee-enjoy.jpg"
+            alt=""
+            class="aspect-[3/4] w-full object-cover"
+            loading="lazy"
+            width="384"
+            height="512"
+          />
+        </div>
+      </div>
+
+      <div class="space-y-8 text-lg leading-relaxed text-paper/85 lg:pt-24">
+        <p class="reveal first-letter:display first-letter:float-left first-letter:mr-3 first-letter:text-6xl first-letter:font-bold first-letter:leading-[0.8] first-letter:text-honey">
+          {t("our-story.part-1")}
+        </p>
+        <p class="reveal reveal-delay-1">{t("our-story.part-2")}</p>
+        <p class="reveal reveal-delay-2 border-l-2 border-honey pl-6 text-paper">
+          {t("our-story.part-3")}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

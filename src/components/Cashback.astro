@@ -1,0 +1,60 @@
+---
+import { useTranslations, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const steps = [
+  { n: "1", title: t("cashback.step-1.title"), description: t("cashback.step-1.description") },
+  { n: "2", title: t("cashback.step-2.title"), description: t("cashback.step-2.description") },
+  { n: "3", title: t("cashback.step-3.title"), description: t("cashback.step-3.description") },
+];
+---
+
+<section class="relative overflow-hidden py-24" id="cashback">
+  <!-- Giant decorative % -->
+  <span
+    aria-hidden="true"
+    class="display outline-brand pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 text-[24rem] font-bold opacity-25 select-none hidden xl:block"
+  >
+    %
+  </span>
+
+  <div class="container mx-auto px-5">
+    <div class="max-w-2xl">
+      <p class="eyebrow reveal text-brand">{t("cashback.word")}</p>
+      <h2 class="display reveal mt-4 text-5xl font-bold text-ink sm:text-6xl">
+        {t("cashback.title")}
+      </h2>
+      <p class="reveal reveal-delay-1 mt-5 text-lg leading-relaxed text-ink-soft">
+        {t("cashback.subtitle")}
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {
+        steps.map((step, i) => (
+          <div class={`ticket reveal reveal-delay-${i + 1} flex items-stretch gap-0 p-6 pl-0 ${i === 1 ? "md:translate-y-6" : ""}`}>
+            <span class="display flex w-[3.2rem] shrink-0 items-center justify-center text-4xl font-bold text-brand">
+              {step.n}
+            </span>
+            <div class="pl-5">
+              <h3 class="text-lg font-semibold text-ink">{step.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="reveal mt-10 max-w-xl text-xs leading-relaxed text-ink-soft/70">
+      {t("cashback.note")}
+    </p>
+  </div>
+</section>
