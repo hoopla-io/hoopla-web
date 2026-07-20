@@ -1,0 +1,31 @@
+---
+import Base from "@/layouts/Base.astro";
+import Hero from "@/components/Hero.astro";
+import Features from "@/components/Features.astro";
+import Cashback from "@/components/Cashback.astro";
+import Partners from "@/components/Partners.astro";
+import OurStory from "@/components/OurStory.astro";
+import { getStaticLocalePaths, useTranslations, type Locale } from "@/i18n";
+
+export function getStaticPaths() {
+  return getStaticLocalePaths();
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale);
+---
+
+<Base
+  locale={locale}
+  title={`Hoopla — ${t("hero.text-1")} ${t("hero.text-2")} ${t("hero.text-3")}`}
+  description={t("hero.subtitle")}
+  path="/"
+>
+  <main>
+    <Hero locale={locale} />
+    <Features locale={locale} />
+    <Cashback locale={locale} />
+    <Partners locale={locale} />
+    <OurStory locale={locale} />
+  </main>
+</Base>

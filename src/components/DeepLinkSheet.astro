@@ -1,0 +1,85 @@
+---
+import { useTranslations, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+  /** Full site path including locale, e.g. /uz/shop/123 */
+  path: string;
+}
+
+const { locale, path } = Astro.props;
+const t = useTranslations(locale);
+
+const playStoreUrl =
+  "https://play.google.com/store/apps/details?id=uz.alphazet.hoopla";
+const appStoreUrl = "https://apps.apple.com/app/hoopla/id6739946223";
+---
+
+<div
+  id="deeplink"
+  class="pointer-events-none fixed inset-0 z-[85] hidden"
+  data-path={path}
+  data-play={playStoreUrl}
+  data-appstore={appStoreUrl}
+>
+  <div class="sheet-backdrop pointer-events-auto" data-dismiss></div>
+  <div class="sheet-panel pointer-events-auto p-6 pb-8">
+    <div class="mx-auto mb-5 h-1.5 w-12 rounded-full bg-ink/20"></div>
+    <p class="text-center text-lg font-semibold text-ink">
+      {t("deeplink.title")}
+    </p>
+    <div class="mt-6 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img
+          src="/images/app/hoopla.webp"
+          alt="Hoopla"
+          width="44"
+          height="44"
+          class="h-11 w-11 rounded-xl border-2 border-ink object-cover"
+        />
+        <span class="display text-2xl font-bold lowercase text-brand">hoopla</span>
+      </div>
+      <button id="deeplink-open" class="btn-brand !py-2.5">
+        {t("deeplink.open-in-app")}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const root = document.getElementById("deeplink");
+  if (root) {
+    const ua = navigator.userAgent;
+    const isAndroid = /android/i.test(ua);
+    const isIOS = /iphone|ipad|ipod/i.test(ua);
+
+    if (isAndroid || isIOS) {
+      root.classList.remove("hidden");
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => root.classList.add("deeplink-open"))
+      );
+
+      const close = () => {
+        root.classList.remove("deeplink-open");
+        setTimeout(() => root.classList.add("hidden"), 300);
+      };
+      root
+        .querySelector("[data-dismiss]")
+        ?.addEventListener("click", close);
+
+      document.getElementById("deeplink-open")?.addEventListener("click", () => {
+        const path = root.dataset.path ?? "/";
+        if (isAndroid) {
+          const fallback = encodeURIComponent(root.dataset.play ?? "");
+          window.location.href = `intent://hoopla.uz${path}#Intent;scheme=https;package=uz.alphazet.hoopla;S.browser_fallback_url=${fallback};end`;
+        } else {
+          window.location.href = `https://hoopla.uz${path}`;
+          setTimeout(() => {
+            window.location.href = root.dataset.appstore ?? "";
+          }, 1500);
+        }
+        close();
+      });
+    }
+  }
+</script>
